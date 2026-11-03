@@ -77,6 +77,7 @@
       scroll-behavior: smooth;
       background-color: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
     }
 
     body {
@@ -88,6 +89,7 @@
       -webkit-font-smoothing: antialiased;
       background-color: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
     }
 
     /* Accessibility focus */
@@ -216,6 +218,7 @@
       font-size: 0.92rem;
       font-weight: 600;
       border: 1px solid var(--primary);
+      white-space: nowrap;
       transition: background 0.2s ease, border-color 0.2s ease;
     }
     .btn-nav:hover {
@@ -229,8 +232,36 @@
       }
     }
     @media (max-width: 580px) {
+      .nav-inner {
+        gap: 0.75rem;
+      }
+      .brand-title {
+        font-size: 1.15rem;
+        white-space: nowrap;
+      }
+      .brand-sub {
+        font-size: 0.7rem;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
       .nav-tel {
         display: none;
+      }
+      .btn-nav {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.85rem;
+      }
+    }
+    @media (max-width: 380px) {
+      .nav-inner {
+        gap: 0.5rem;
+      }
+      .brand-title {
+        font-size: 1.1rem;
+      }
+      .btn-nav {
+        padding: 0.4rem 0.65rem;
+        font-size: 0.82rem;
       }
     }
 
