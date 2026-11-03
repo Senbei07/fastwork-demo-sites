@@ -9,944 +9,1458 @@
 <meta property="og:description" content="กาแฟสดริมคลอง บรรยากาศอบอุ่น เบเกอรี่สดใหม่ทุกวัน">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="th_TH">
-<meta name="theme-color" content="#5c3317">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%235c3317'/><path d='M18 44h28M20 28h24l-3 16H23L20 28z' stroke='%23f5e6c8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M44 32c4 0 7 2 7 5s-3 5-7 5' stroke='%23f5e6c8' stroke-width='2.5' stroke-linecap='round' fill='none'/><path d='M26 24c0-3 2-4 2-6M32 22c0-3 2-4 2-6M38 24c0-3 2-4 2-6' stroke='%23f5e6c8' stroke-width='2' stroke-linecap='round' fill='none'/></svg>">
+<meta name="theme-color" content="#201a16">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23201a16'/><path d='M16 46h32M19 28h26l-3.5 18H22.5L19 28z' stroke='%23f4efe6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M45 32c4.2 0 7 2.2 7 5.5s-2.8 5.5-7 5.5' stroke='%23f4efe6' stroke-width='2.6' stroke-linecap='round' fill='none'/><path d='M26 23c0-3.2 2-4.5 2-6.5M32 21c0-3.2 2-4.5 2-6.5M38 23c0-3.2 2-4.5 2-6.5' stroke='%23c88242' stroke-width='2.2' stroke-linecap='round' fill='none'/></svg>">
+
+<!-- Font Preloads (at most two above the fold) -->
+<link rel="preload" href="fonts/taviraj-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sarabun-regular.woff2" as="font" type="font/woff2" crossorigin>
+
 <style>
+  /* === SELF-HOSTED SUBSET FONTS === */
+  @font-face {
+    font-family: 'Taviraj';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/taviraj-bold.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Sarabun';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/sarabun-regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Sarabun';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('fonts/sarabun-semibold.woff2') format('woff2');
+  }
+
+  /* === DESIGN TOKENS === */
+  :root {
+    --bg-page: #fafaf9;
+    --bg-surface: #ffffff;
+    --bg-subtle: #f2f1ee;
+    --bg-dark: #201a16;
+    --bg-dark-card: #2c241f;
+
+    --text-primary: #1d1814;
+    --text-secondary: #5a4f45;
+    --text-muted: #72665b;
+    --text-light: #f4efe6;
+    --text-light-muted: #d0c5b6;
+
+    --accent-leaf: #33503b;
+    --accent-leaf-hover: #263e2d;
+    --accent-clay: #874623;
+    --accent-clay-hover: #6d3619;
+
+    --border-rule: #ded5c6;
+    --border-dark: #3f352e;
+
+    --font-heading: 'Taviraj', 'Noto Serif Thai', 'Trirong', serif;
+    --font-body: 'Sarabun', 'Noto Sans Thai', 'Anuphan', sans-serif;
+
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-pill: 9999px;
+
+    --shadow-soft: 0 4px 20px rgba(29, 24, 20, 0.07);
+    --shadow-medium: 0 8px 30px rgba(29, 24, 20, 0.12);
+  }
+
   /* === RESET & BASE === */
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  body{
-    font-family:"Noto Sans Thai","Sukhumvit Set","Thonburi","Leelawadee UI",system-ui,sans-serif;
-    background:#fdf8f0;
-    color:#2d1b0e;
-    line-height:1.7;
-    font-size:16px;
-    overflow-x:hidden;
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-  img,svg{display:block;max-width:100%}
-  a{color:inherit;text-decoration:none}
-  button{font-family:inherit;cursor:pointer}
-  h1,h2,h3{line-height:1.3}
-  :focus-visible{outline:3px solid #c47c2e;outline-offset:3px}
-
-  /* === DEMO BANNER === */
-  .demo-banner{
-    position:sticky;top:0;z-index:999;
-    background:#1a0a00;
-    color:#f5e6c8;
-    text-align:center;
-    padding:9px 16px;
-    font-size:0.78rem;
-    font-weight:600;
-    letter-spacing:0.02em;
-    line-height:1.4;
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--bg-page);
   }
-  .demo-banner span{opacity:0.9}
-
-  /* === NAV === */
-  nav{
-    background:rgba(253,248,240,0.96);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-    border-bottom:1px solid #e8d5b5;
-    padding:0 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:60px;
-    position:sticky;
-    top:38px;
-    z-index:900;
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.75;
+    font-size: 16px;
+    overflow-x: hidden;
   }
-  .nav-logo{
-    font-size:1.1rem;
-    font-weight:700;
-    color:#5c3317;
-    display:flex;
-    align-items:center;
-    gap:8px;
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
-  .nav-links{
-    display:flex;
-    gap:4px;
-    list-style:none;
+  a {
+    color: inherit;
+    text-decoration: none;
   }
-  .nav-links a{
-    padding:8px 12px;
-    border-radius:8px;
-    font-size:0.88rem;
-    font-weight:600;
-    color:#5c3317;
-    transition:background .2s,color .2s;
-    min-height:44px;
-    display:flex;
-    align-items:center;
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
   }
-  .nav-links a:hover{background:#f0dfc0;color:#3d1f08}
-  @media(max-width:600px){.nav-links{display:none}}
-
-  /* === HERO === */
-  .hero{
-    background:linear-gradient(160deg,#3d1f08 0%,#6b3a1f 40%,#8b5230 70%,#c47c2e 100%);
-    min-height:90svh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:60px 24px 100px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:'';
-    position:absolute;inset:0;
-    background:radial-gradient(ellipse at 30% 60%,rgba(196,124,46,0.25) 0%,transparent 60%),
-               radial-gradient(ellipse at 80% 20%,rgba(255,220,150,0.12) 0%,transparent 50%);
-    pointer-events:none;
-  }
-  .hero-coffee{
-    width:180px;height:180px;
-    margin:0 auto 32px;
-    filter:drop-shadow(0 8px 24px rgba(0,0,0,0.4));
-    animation:floatCup 3.5s ease-in-out infinite;
-  }
-  @keyframes floatCup{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
-  }
-  .hero h1{
-    font-size:clamp(2rem,7vw,3.2rem);
-    font-weight:800;
-    color:#fff;
-    letter-spacing:-0.01em;
-    margin-bottom:12px;
-    text-shadow:0 2px 12px rgba(0,0,0,0.3);
-  }
-  .hero-tagline{
-    font-size:clamp(1rem,3.5vw,1.3rem);
-    color:#f5e6c8;
-    opacity:0.92;
-    margin-bottom:36px;
-    max-width:480px;
-    line-height:1.6;
-  }
-  .hero-ctas{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-  .btn-primary{
-    background:linear-gradient(135deg,#c47c2e,#e8a845);
-    color:#1a0800;
-    padding:14px 28px;
-    border-radius:50px;
-    font-size:1rem;
-    font-weight:700;
-    border:none;
-    min-height:52px;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    box-shadow:0 4px 18px rgba(196,124,46,0.5);
-    transition:transform .2s,box-shadow .2s;
-    text-decoration:none;
-  }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(196,124,46,0.6)}
-  .btn-secondary{
-    background:rgba(255,255,255,0.12);
-    color:#fff;
-    padding:14px 28px;
-    border-radius:50px;
-    font-size:1rem;
-    font-weight:700;
-    border:2px solid rgba(255,255,255,0.4);
-    min-height:52px;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    backdrop-filter:blur(4px);
-    transition:background .2s,border-color .2s;
-    text-decoration:none;
-  }
-  .btn-secondary:hover{background:rgba(255,255,255,0.22);border-color:rgba(255,255,255,0.7)}
-  .hero-scroll{
-    position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
-    animation:bounce 2s ease-in-out infinite;
-  }
-  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-
-  /* === SECTION BASE === */
-  section{padding:64px 20px}
-  .section-inner{max-width:960px;margin:0 auto}
-  .section-tag{
-    display:inline-block;
-    background:#f0dfc0;
-    color:#7a4520;
-    font-size:0.78rem;
-    font-weight:700;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    padding:4px 14px;
-    border-radius:50px;
-    margin-bottom:12px;
-  }
-  .section-title{
-    font-size:clamp(1.6rem,4vw,2.2rem);
-    font-weight:800;
-    color:#3d1f08;
-    margin-bottom:8px;
-  }
-  .section-sub{
-    color:#7a5c3c;
-    font-size:1rem;
-    margin-bottom:40px;
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    line-height: 1.35;
+    font-weight: 700;
+    color: var(--text-primary);
   }
 
-  /* === MENU === */
-  .menu-section{background:#fff}
-  .menu-category{margin-bottom:48px}
-  .menu-cat-title{
-    font-size:1.15rem;
-    font-weight:700;
-    color:#5c3317;
-    margin-bottom:20px;
-    padding-bottom:10px;
-    border-bottom:2px solid #f0dfc0;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .menu-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-    gap:16px;
-  }
-  .menu-card{
-    background:#fdf8f0;
-    border:1px solid #e8d5b5;
-    border-radius:16px;
-    padding:20px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    transition:box-shadow .2s,transform .2s;
-    position:relative;
-    overflow:hidden;
-  }
-  .menu-card::before{
-    content:'';
-    position:absolute;top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg,#c47c2e,#e8a845);
-    opacity:0;
-    transition:opacity .2s;
-  }
-  .menu-card:hover{box-shadow:0 6px 24px rgba(92,51,23,0.12);transform:translateY(-3px)}
-  .menu-card:hover::before{opacity:1}
-  .menu-card-icon{
-    width:44px;height:44px;
-    background:linear-gradient(135deg,#f0dfc0,#e8c89a);
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:8px;
-  }
-  .menu-card-name{font-size:1rem;font-weight:700;color:#3d1f08}
-  .menu-card-desc{font-size:0.85rem;color:#7a5c3c;line-height:1.5}
-  .menu-card-price{
-    font-size:1.05rem;
-    font-weight:800;
-    color:#8c4708;
-    margin-top:auto;
-    padding-top:8px;
+  /* Accessibility Focus */
+  :focus-visible {
+    outline: 3px solid var(--accent-leaf);
+    outline-offset: 3px;
   }
 
-  /* === HOURS === */
-  .hours-section{background:#fdf3e4}
-  .hours-card{
-    background:#fff;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 4px 24px rgba(92,51,23,0.08);
-    max-width:560px;
-    margin:0 auto;
+  /* Selection & Scrollbar */
+  ::selection {
+    background: #dcd0bc;
+    color: var(--text-primary);
   }
-  .hours-header{
-    background:linear-gradient(135deg,#5c3317,#8b5230);
-    color:#f5e6c8;
-    padding:24px 28px;
-    display:flex;
-    align-items:center;
-    gap:14px;
+  ::-webkit-scrollbar {
+    width: 8px;
   }
-  .hours-header h3{font-size:1.1rem;font-weight:700}
-  .hours-header p{font-size:0.85rem;opacity:0.95;margin-top:2px}
-  table{width:100%;border-collapse:collapse}
-  tbody tr{border-bottom:1px solid #f0e8d8}
-  tbody tr:last-child{border:none}
-  td{padding:14px 28px;font-size:0.95rem;color:#3d1f08}
-  td:last-child{text-align:right;font-weight:600;color:#5c3317}
-  .open-badge{
-    display:inline-block;
-    background:#e8f5e9;
-    color:#2e7d32;
-    font-size:0.72rem;
-    font-weight:700;
-    padding:2px 8px;
-    border-radius:50px;
-    margin-left:6px;
-    vertical-align:middle;
+  ::-webkit-scrollbar-track {
+    background: var(--bg-page);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c5b9a5;
+    border-radius: var(--radius-sm);
   }
 
-  /* === LOCATION === */
-  .location-section{background:#fff}
-  .location-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:32px;
+  /* Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -60px;
+    left: 16px;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    padding: 10px 18px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    z-index: 10000;
+    transition: top 0.2s ease-out;
   }
-  @media(min-width:700px){
-    .location-grid{grid-template-columns:1fr 1fr;align-items:start}
+  .skip-link:focus {
+    top: 10px;
   }
-  .location-info{display:flex;flex-direction:column;gap:20px}
-  .info-row{display:flex;gap:14px;align-items:flex-start}
-  .info-icon{
-    width:44px;height:44px;min-width:44px;
-    background:linear-gradient(135deg,#f0dfc0,#e8c89a);
-    border-radius:12px;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .info-label{font-size:0.8rem;font-weight:700;color:#7a5c3c;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.05em}
-  .info-value{font-size:0.95rem;color:#3d1f08;line-height:1.6}
-  .map-wrapper{
-    border-radius:16px;
-    overflow:hidden;
-    border:1px solid #e8d5b5;
-    background:#f0e8d8;
-    min-height:300px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    gap:16px;
-    position:relative;
-  }
-  .map-placeholder{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;
-    padding:32px;
-    text-align:center;
-  }
-  .map-placeholder p{font-size:0.9rem;color:#7a5c3c}
-  .btn-map{
-    background:linear-gradient(135deg,#5c3317,#8b5230);
-    color:#f5e6c8;
-    border:none;
-    padding:14px 28px;
-    border-radius:50px;
-    font-size:0.95rem;
-    font-weight:700;
-    min-height:52px;
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:opacity .2s;
-    font-family:inherit;
-  }
-  .btn-map:hover{opacity:0.88}
-  .contact-btns{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:8px;
-  }
-  .btn-line{
-    background:linear-gradient(135deg,#037a34,#006328);
-    color:#fff;
-    padding:14px 24px;
-    border-radius:50px;
-    font-size:0.95rem;
-    font-weight:700;
-    border:none;
-    min-height:52px;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    text-decoration:none;
-    transition:opacity .2s,transform .2s;
-    box-shadow:0 3px 12px rgba(3,122,52,0.35);
-  }
-  .btn-line:hover{opacity:0.88;transform:translateY(-2px)}
-  .btn-tel{
-    background:linear-gradient(135deg,#c47c2e,#e8a845);
-    color:#1a0800;
-    padding:14px 24px;
-    border-radius:50px;
-    font-size:0.95rem;
-    font-weight:700;
-    border:none;
-    min-height:52px;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    text-decoration:none;
-    transition:opacity .2s,transform .2s;
-    box-shadow:0 3px 12px rgba(196,124,46,0.35);
-  }
-  .btn-tel:hover{opacity:0.88;transform:translateY(-2px)}
 
-  /* === STICKY BOTTOM BAR (mobile only) === */
-  .sticky-bar{
-    display:none;
-    position:fixed;bottom:0;left:0;right:0;z-index:800;
-    background:rgba(29,12,2,0.97);
-    backdrop-filter:blur(8px);
-    padding:12px 16px max(12px,env(safe-area-inset-bottom));
-    gap:10px;
-    border-top:1px solid rgba(255,255,255,0.08);
+  /* === DEMO BANNER (Mandatory) === */
+  .demo-banner {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border-dark);
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.4;
   }
-  @media(max-width:768px){
-    .sticky-bar{display:flex}
-    body{padding-bottom:88px}
+  .demo-banner strong {
+    color: #e5a767;
   }
-  .sticky-bar a{flex:1;justify-content:center}
+  .demo-banner span {
+    opacity: 0.85;
+  }
+
+  /* === NAVIGATION === */
+  .site-header {
+    background: rgba(250, 250, 249, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-rule);
+    position: sticky;
+    top: 36px;
+    z-index: 900;
+  }
+  .nav-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-menu {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-menu a {
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+  .nav-menu a:hover {
+    color: var(--text-primary);
+    background: var(--bg-subtle);
+  }
+  .nav-contact-quick {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .nav-contact-quick {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 8px;
+      padding: 8px 16px;
+      background: var(--accent-leaf);
+      color: var(--text-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.15s ease;
+    }
+    .nav-contact-quick:hover {
+      background: var(--accent-leaf-hover);
+      color: var(--text-light);
+    }
+  }
+
+  /* === HERO SECTION (Photo-led, Editorial) === */
+  .hero-section {
+    padding: 40px 20px 60px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  @media (min-width: 840px) {
+    .hero-grid {
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+    }
+  }
+  .hero-image-wrap {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-subtle);
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-rule);
+  }
+  .hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 3 / 2;
+  }
+  .hero-image-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: rgba(32, 26, 22, 0.9);
+    backdrop-filter: blur(6px);
+    color: var(--text-light);
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-image-badge::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4caf50;
+    border-radius: 50%;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-subhead {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent-clay);
+    line-height: 1.5;
+  }
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 0.98rem;
+    font-weight: 600;
+    min-height: 48px;
+    transition: background 0.15s ease, transform 0.15s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-line-main {
+    background: #036b30;
+    color: #ffffff;
+  }
+  .btn-line-main:hover {
+    background: #025726;
+    color: #ffffff;
+  }
+  .btn-tel-main {
+    background: var(--bg-dark);
+    color: var(--text-light);
+  }
+  .btn-tel-main:hover {
+    background: #352c25;
+    color: var(--text-light);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-rule);
+  }
+  .btn-outline:hover {
+    background: var(--bg-subtle);
+  }
+
+  /* === EDITORIAL AMBIANCE SECTION === */
+  .ambiance-section {
+    background: var(--bg-subtle);
+    border-top: 1px solid var(--border-rule);
+    border-bottom: 1px solid var(--border-rule);
+    padding: 64px 20px;
+  }
+  .ambiance-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 800px) {
+    .ambiance-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+  }
+  .ambiance-narrative h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin-bottom: 16px;
+  }
+  .ambiance-narrative p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .ambiance-quote {
+    border-left: 3px solid var(--accent-clay);
+    padding-left: 16px;
+    margin-top: 24px;
+    font-style: normal;
+  }
+  .ambiance-quote p {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .ambiance-quote span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .ambiance-photo-card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-rule);
+  }
+  .ambiance-photo-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .ambiance-photo-caption {
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ambiance-photo-caption strong {
+    color: var(--text-primary);
+  }
+
+  /* === MENU BOARD SECTION (Printed Menu Board Feel) === */
+  .menu-section {
+    padding: 80px 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .menu-header-editorial {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .menu-header-editorial h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 10px;
+  }
+  .menu-header-editorial p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .menu-board-wrap {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    padding: 32px 24px;
+  }
+  @media (min-width: 768px) {
+    .menu-board-wrap {
+      padding: 48px 44px;
+    }
+  }
+
+  .menu-category-block {
+    margin-bottom: 48px;
+  }
+  .menu-category-block:last-child {
+    margin-bottom: 0;
+  }
+  .menu-category-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+  }
+  .menu-category-header h3 {
+    font-size: 1.35rem;
+    color: var(--text-primary);
+  }
+  .menu-category-header span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  /* Menu Item List (Editorial Board) */
+  .menu-item-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 800px) {
+    .menu-item-list {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 48px;
+      row-gap: 24px;
+    }
+  }
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--border-rule);
+  }
+  .menu-item-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .menu-item-name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+  }
+  .menu-item-price {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--accent-clay);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .menu-item-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  /* Mid-Menu Feature Photo */
+  .menu-feature-banner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: center;
+    background: var(--bg-subtle);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    margin: 40px 0;
+    border: 1px solid var(--border-rule);
+  }
+  @media (min-width: 768px) {
+    .menu-feature-banner {
+      grid-template-columns: 240px 1fr;
+      padding: 24px 32px;
+    }
+  }
+  .menu-feature-banner img {
+    border-radius: var(--radius-sm);
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .menu-feature-content h4 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+  .menu-feature-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* === HOURS SECTION === */
+  .hours-section {
+    background: var(--bg-subtle);
+    border-top: 1px solid var(--border-rule);
+    border-bottom: 1px solid var(--border-rule);
+    padding: 72px 20px;
+  }
+  .hours-container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .hours-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .hours-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    margin-bottom: 8px;
+  }
+  .hours-header p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  .hours-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+  }
+  .hours-card-top {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hours-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 0.84rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+  }
+  .status-badge.open {
+    background: #e6f4ea;
+    color: #137333;
+  }
+  .status-badge.closed {
+    background: #fce8e6;
+    color: #c5221f;
+  }
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .hours-table tr {
+    border-bottom: 1px solid var(--border-rule);
+  }
+  .hours-table tr:last-child {
+    border-bottom: none;
+  }
+  .hours-table td {
+    padding: 16px 24px;
+    font-size: 1rem;
+    color: var(--text-primary);
+  }
+  .hours-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+  .hours-note {
+    background: var(--bg-page);
+    padding: 14px 24px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-rule);
+    text-align: center;
+  }
+
+  /* === LOCATION & MAP SECTION === */
+  .location-section {
+    padding: 80px 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .location-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .location-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 8px;
+  }
+  .location-header p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+  }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  @media (min-width: 840px) {
+    .location-grid {
+      grid-template-columns: 1fr 1.15fr;
+      align-items: start;
+    }
+  }
+
+  .location-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .info-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .info-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-subtle);
+    color: var(--accent-clay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .info-meta h3 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    font-family: var(--font-body);
+  }
+  .info-meta p, .info-meta a {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  .info-meta a {
+    font-weight: 600;
+    color: var(--accent-clay);
+  }
+  .info-meta a:hover {
+    text-decoration: underline;
+  }
+  .location-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-rule);
+  }
+
+  /* Map Facade (Lazy Click-to-load) */
+  .map-container-box {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-rule);
+    background: var(--bg-subtle);
+    min-height: 380px;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+  }
+  .map-facade-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    min-height: 380px;
+    gap: 18px;
+  }
+  .map-facade-img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin-bottom: 6px;
+    border: 1px solid var(--border-rule);
+  }
+  .map-facade-content h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+  }
+  .map-facade-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 380px;
+    line-height: 1.6;
+  }
+  .btn-load-map {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s ease;
+  }
+  .btn-load-map:hover {
+    background: #352c25;
+  }
 
   /* === FOOTER === */
-  footer{
-    background:#1a0a00;
-    color:#f5e6c8;
-    padding:48px 24px 40px;
-    text-align:center;
+  .site-footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    border-top: 1px solid var(--border-dark);
+    padding: 64px 20px 48px;
   }
-  .footer-logo{
-    font-size:1.3rem;
-    font-weight:800;
-    margin-bottom:6px;
-    color:#e8c89a;
+  .footer-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    text-align: center;
   }
-  .footer-tagline{font-size:0.88rem;opacity:0.85;margin-bottom:24px}
-  .footer-links{
-    display:flex;
-    gap:12px;
-    justify-content:center;
-    flex-wrap:wrap;
-    margin-bottom:28px;
+  .footer-brand {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-light);
   }
-  .footer-links a{
-    font-size:0.85rem;
-    color:#e8c89a;
-    opacity:0.88;
-    transition:opacity .2s;
+  .footer-tagline {
+    font-size: 0.95rem;
+    color: var(--text-light-muted);
+    margin-bottom: 32px;
   }
-  .footer-links a:hover{opacity:1}
-  .footer-divider{
-    width:60px;height:2px;
-    background:linear-gradient(90deg,transparent,#c47c2e,transparent);
-    margin:0 auto 24px;
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 36px;
   }
-  .footer-demo{
-    font-size:0.8rem;
-    color:#f5e6c8;
-    opacity:0.8;
-    line-height:1.7;
-    max-width:480px;
-    margin:0 auto;
+  .footer-nav a {
+    color: var(--text-light-muted);
+    font-size: 0.92rem;
+    transition: color 0.15s ease;
   }
-  .footer-demo strong{color:#e8c89a;opacity:0.9}
-
-  /* === ABOUT STRIP === */
-  .about-strip{
-    background:linear-gradient(135deg,#3d1f08,#6b3a1f);
-    padding:56px 24px;
-    text-align:center;
-    color:#f5e6c8;
+  .footer-nav a:hover {
+    color: var(--text-light);
   }
-  .about-strip h2{font-size:clamp(1.4rem,4vw,2rem);margin-bottom:12px;color:#fff}
-  .about-strip p{max-width:560px;margin:0 auto;font-size:0.97rem;opacity:0.85;line-height:1.8}
-  .about-features{
-    display:flex;
-    gap:20px;
-    justify-content:center;
-    flex-wrap:wrap;
-    margin-top:36px;
+  .footer-divider {
+    height: 1px;
+    background: var(--border-dark);
+    max-width: 400px;
+    margin: 0 auto 32px;
   }
-  .feature-pill{
-    background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.15);
-    border-radius:50px;
-    padding:10px 20px;
-    font-size:0.88rem;
-    font-weight:600;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    min-height:44px;
+  .footer-demo-note {
+    font-size: 0.85rem;
+    color: var(--text-light-muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+  .footer-demo-note strong {
+    color: #e5a767;
+  }
+  .footer-credits {
+    font-size: 0.8rem;
+    color: #9c8e7f;
+    line-height: 1.6;
+  }
+  .footer-credits a {
+    color: var(--text-light-muted);
+    text-decoration: underline;
   }
 
-  /* === SCROLLBAR === */
-  ::-webkit-scrollbar{width:6px}
-  ::-webkit-scrollbar-track{background:#fdf8f0}
-  ::-webkit-scrollbar-thumb{background:#c47c2e;border-radius:3px}
+  /* === STICKY BOTTOM BAR (Mobile Only) === */
+  .mobile-bottom-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 800;
+    background: rgba(32, 26, 22, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-dark);
+    padding: 10px 16px max(10px, env(safe-area-inset-bottom));
+    gap: 10px;
+  }
+  @media (max-width: 768px) {
+    .mobile-bottom-bar {
+      display: flex;
+    }
+    body {
+      padding-bottom: 84px;
+    }
+  }
+  .mobile-bottom-bar a {
+    flex: 1;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .mobile-btn-line {
+    background: #036b30;
+    color: #ffffff;
+  }
+  .mobile-btn-tel {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+  }
+
+  /* Hidden Screen Reader Utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
 </head>
 <body>
 
+<!-- Skip Link -->
+<a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
+
 <!-- DEMO BANNER -->
-<div class="demo-banner" role="alert" aria-label="ข้อความสำหรับเว็บตัวอย่าง">
-  เว็บตัวอย่าง (Demo) — ร้านสมมติเพื่อแสดงผลงาน <span>ไม่ใช่ร้านจริง</span>
-</div>
+<aside class="demo-banner" aria-label="แถบข้อความแจ้งเตือนเว็บไซต์ตัวอย่าง">
+  <strong>เว็บตัวอย่าง (Demo)</strong> — ร้านสมมติเพื่อแสดงผลงานออกแบบเว็บไซต์ <span>(ไม่ใช่ร้านค้าจริง)</span>
+</aside>
 
-<!-- NAV -->
-<nav aria-label="เมนูหลัก">
-  <div class="nav-logo">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
-      <rect width="28" height="28" rx="8" fill="#5c3317"/>
-      <path d="M7 19h14M8 12h12l-1.5 7H9.5L8 12z" stroke="#f5e6c8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <path d="M20 14c2 0 3.5 1 3.5 2.5S22 19 20 19" stroke="#f5e6c8" stroke-width="1.3" stroke-linecap="round" fill="none"/>
-      <path d="M11 10.5c0-1.5 1-2 1-3M14 10c0-1.5 1-2 1-3M17 10.5c0-1.5 1-2 1-3" stroke="#f5e6c8" stroke-width="1.1" stroke-linecap="round" fill="none"/>
-    </svg>
-    บ้านกาแฟริมคลอง
-  </div>
-  <ul class="nav-links">
-    <li><a href="#menu">เมนู</a></li>
-    <li><a href="#hours">เวลาเปิด</a></li>
-    <li><a href="#location">ที่ตั้ง</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" aria-label="ส่วนต้อนรับ">
-  <!-- SVG Coffee Cup Illustration -->
-  <svg class="hero-coffee" width="180" height="180" viewBox="0 0 180 180" aria-label="ภาพกาแฟสด" role="img">
-    <!-- Saucer -->
-    <ellipse cx="90" cy="148" rx="55" ry="9" fill="rgba(0,0,0,0.18)"/>
-    <ellipse cx="90" cy="144" rx="52" ry="7" fill="#8b5a2b"/>
-    <ellipse cx="90" cy="142" rx="52" ry="7" fill="#a06730"/>
-    <!-- Cup body -->
-    <path d="M52 88 Q48 138 90 140 Q132 138 128 88 Z" fill="#c8822e"/>
-    <path d="M52 88 Q48 138 90 140 Q132 138 128 88 Z" fill="url(#cupGrad)"/>
-    <!-- Cup rim -->
-    <ellipse cx="90" cy="88" rx="38" ry="9" fill="#e09840"/>
-    <ellipse cx="90" cy="87" rx="38" ry="9" fill="#d08030"/>
-    <!-- Coffee surface -->
-    <ellipse cx="90" cy="88" rx="33" ry="7" fill="#3d1f08"/>
-    <!-- Latte art -->
-    <path d="M72 88 Q90 78 108 88" stroke="#c8a060" stroke-width="2" fill="none" opacity="0.7"/>
-    <path d="M78 91 Q90 84 102 91" stroke="#c8a060" stroke-width="1.5" fill="none" opacity="0.5"/>
-    <circle cx="90" cy="89" r="4" fill="#c8a060" opacity="0.4"/>
-    <!-- Handle -->
-    <path d="M128 98 Q152 98 152 114 Q152 130 128 130" stroke="#b06820" stroke-width="8" fill="none" stroke-linecap="round"/>
-    <path d="M128 98 Q147 98 147 114 Q147 130 128 130" stroke="#d8941a" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <!-- Steam lines -->
-    <g opacity="0.85">
-      <path d="M74 72 Q70 62 74 52 Q78 42 74 32" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0"/>
-      <path d="M90 68 Q86 56 90 44 Q94 32 90 20" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round">
-        <animate attributeName="opacity" values="0;0.7;0;0.7;0" dur="2.5s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="translate" values="0,0;0,-6;0,0" dur="2.5s" repeatCount="indefinite"/>
-      </path>
-      <path d="M106 72 Q110 60 106 48 Q102 36 106 24" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round">
-        <animate attributeName="opacity" values="0;0.6;0;0.6;0" dur="3s" begin="0.8s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="3s" begin="0.8s" repeatCount="indefinite"/>
-      </path>
-      <path d="M78 76 Q75 66 78 56 Q81 46 78 36" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round">
-        <animate attributeName="opacity" values="0;0.5;0;0.5;0" dur="2.8s" begin="1.4s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="translate" values="0,0;0,-4;0,0" dur="2.8s" begin="1.4s" repeatCount="indefinite"/>
-      </path>
-    </g>
-    <defs>
-      <linearGradient id="cupGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#e09840" stop-opacity="0.3"/>
-        <stop offset="50%" stop-color="transparent"/>
-        <stop offset="100%" stop-color="#3d1f08" stop-opacity="0.3"/>
-      </linearGradient>
-    </defs>
-  </svg>
-
-  <h1>บ้านกาแฟริมคลอง</h1>
-  <p class="hero-tagline">กาแฟสดคั่วใหม่ บรรยากาศอบอุ่นริมคลอง<br>เบเกอรี่สดทุกเช้า — เปิดทุกวัน</p>
-  <div class="hero-ctas">
-    <a href="https://line.me/R/ti/p/@demo-cafe" class="btn-primary" rel="noopener noreferrer" target="_blank">
-      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2C5.6 2 2 5.1 2 9c0 2.6 1.5 4.8 3.8 6.1l-.7 2.6 3-1.5c.6.1 1.2.2 1.9.2 4.4 0 8-3.1 8-7S14.4 2 10 2z" fill="#fff"/></svg>
-      แอดไลน์
+<!-- NAVIGATION -->
+<header class="site-header">
+  <div class="nav-container">
+    <a href="#" class="brand-logo" aria-label="บ้านกาแฟริมคลอง หน้าแรก">
+      <div class="brand-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+          <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+          <line x1="6" y1="2" x2="6" y2="4"></line>
+          <line x1="10" y1="2" x2="10" y2="4"></line>
+          <line x1="14" y1="2" x2="14" y2="4"></line>
+        </svg>
+      </div>
+      <span>บ้านกาแฟริมคลอง</span>
     </a>
-    <a href="tel:0812345678" class="btn-secondary">
-      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3h4l1.5 4L7 9c1 2 3 4 5 5l2-2.5L18 13v4c0 1-5 3-9-1S2 8 3 4l1-1z" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      โทรเลย
+    <nav aria-label="เมนูหลัก">
+      <ul class="nav-menu">
+        <li><a href="#menu">เมนูอาหารและเครื่องดื่ม</a></li>
+        <li><a href="#hours">เวลาทำการ</a></li>
+        <li><a href="#location">ที่ตั้งและการเดินทาง</a></li>
+      </ul>
+    </nav>
+    <a href="https://line.me/R/ti/p/@demo-cafe" class="nav-contact-quick" rel="noopener noreferrer" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.5 2 2 5.8 2 10.6c0 3.2 2 6 5.1 7.4l-.8 3.2 3.8-1.9c.6.1 1.3.2 1.9.2 5.5 0 10-3.8 10-8.6S17.5 2 12 2z"/>
+      </svg>
+      <span>ติดต่อร้าน</span>
     </a>
   </div>
-  <!-- Scroll indicator -->
-  <div class="hero-scroll" aria-hidden="true">
-    <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="12" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none"/><path d="M10 12l4 4 4-4" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-</section>
+</header>
 
-<!-- ABOUT STRIP -->
-<div class="about-strip">
-  <h2>ทำไมต้องบ้านกาแฟริมคลอง?</h2>
-  <p>เราคัดสรรเมล็ดกาแฟคุณภาพจากไร่กาแฟในไทย คั่วสดทุกสัปดาห์ บรรยากาศร่มรื่นริมคลอง เหมาะสำหรับการนัดพบ ทำงาน หรือพักผ่อนในช่วงเช้า</p>
-  <div class="about-features">
-    <div class="feature-pill">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 2l1.8 3.6L15 6.3l-3 2.9.7 4.1L9 11.3l-3.7 1.9.7-4.1L3 6.3l4.2-.7z" stroke="#e8c89a" stroke-width="1.2" fill="none" stroke-linejoin="round"/></svg>
-      กาแฟคั่วสด
-    </div>
-    <div class="feature-pill">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7" stroke="#e8c89a" stroke-width="1.3" fill="none"/><path d="M9 5v4l2.5 2.5" stroke="#e8c89a" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>
-      เปิดทุกวัน 7:00–20:00
-    </div>
-    <div class="feature-pill">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 2C5.1 2 2 5.1 2 9s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 3c.8 0 1.5.7 1.5 1.5S9.8 8 9 8s-1.5-.7-1.5-1.5S8.2 5 9 5zm0 9c-1.8 0-3.4-.9-4.4-2.3.1-1.5 3-2.3 4.4-2.3s4.3.8 4.4 2.3C12.4 13.1 10.8 14 9 14z" fill="#e8c89a" opacity="0.85"/></svg>
-      Wi-Fi ฟรี
-    </div>
-    <div class="feature-pill">
-      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 14h12M5 14V7l4-4 4 4v7" stroke="#e8c89a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="7" y="10" width="4" height="4" rx="0.5" stroke="#e8c89a" stroke-width="1.1" fill="none"/></svg>
-      นั่งทำงานได้
-    </div>
-  </div>
-</div>
+<main id="main-content">
 
-<!-- MENU -->
-<section class="menu-section" id="menu">
-  <div class="section-inner">
-    <span class="section-tag">เมนูของเรา</span>
-    <h2 class="section-title">เลือกตามใจชอบ</h2>
-    <p class="section-sub">กาแฟสด · เครื่องดื่มไม่มีกาแฟ · เบเกอรี่อบสด</p>
-
-    <!-- Coffee -->
-    <div class="menu-category">
-      <h3 class="menu-cat-title">
-        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
-          <path d="M5 10h12l-1.2 8H6.2L5 10z" fill="#c47c2e" opacity="0.85"/>
-          <ellipse cx="11" cy="10" rx="6" ry="2" fill="#e8a845"/>
-          <path d="M17 12c2.5 0 4 1 4 2.5S19.5 17 17 17" stroke="#c47c2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path d="M8 8c0-1.5.8-2 .8-3M11 7.5c0-1.5.8-2 .8-3M14 8c0-1.5.8-2 .8-3" stroke="#c47c2e" stroke-width="1.3" stroke-linecap="round" fill="none"/>
-        </svg>
-        กาแฟ (Coffee)
-      </h3>
-      <div class="menu-grid">
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M6 12h14l-1.5 9H7.5L6 12z" fill="#8b5230"/><ellipse cx="13" cy="12" rx="7" ry="2" fill="#c47c2e"/><path d="M10 9.5c0-1.8 1-2.2 1-3.5M13 9c0-1.8 1-2.2 1-3.5M16 9.5c0-1.8 1-2.2 1-3.5" stroke="#c47c2e" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
-          </div>
-          <div class="menu-card-name">เอสเปรสโซ่</div>
-          <div class="menu-card-desc">กาแฟสกัดเข้มข้น หอมกรุ่น ดื่มเพื่อความตื่นตัวสูงสุด</div>
-          <div class="menu-card-price">60 บาท</div>
+  <!-- HERO SECTION -->
+  <section class="hero-section" aria-label="ภาพรวมบ้านกาแฟริมคลอง">
+    <div class="hero-grid">
+      <div class="hero-image-wrap">
+        <picture>
+          <source srcset="img/hero-riverside-sm.webp 640w, img/hero-riverside.webp 1200w" sizes="(max-width: 840px) 100vw, 560px" type="image/webp">
+          <img src="img/hero-riverside.webp" width="1200" height="1600" alt="บรรยากาศระเบียงไม้ริมแม่น้ำพร้อมโต๊ะอาหารริมน้ำของบ้านกาแฟริมคลอง" fetchpriority="high">
+        </picture>
+        <div class="hero-image-badge" aria-hidden="true">
+          <span>เปิดบริการริมคลองทุกวัน 07:00–20:00 น.</span>
         </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 13h16l-2 9H7L5 13z" fill="#8b5230"/><ellipse cx="13" cy="13" rx="8" ry="2.5" fill="#c47c2e"/><ellipse cx="13" cy="12" rx="5" ry="1.5" fill="#f5e6c8" opacity="0.6"/></svg>
-          </div>
-          <div class="menu-card-name">ลาเต้ร้อน / เย็น</div>
-          <div class="menu-card-desc">เอสเปรสโซ่ผสมนมสดครีมมี่ ละมุนในทุกอึก</div>
-          <div class="menu-card-price">75 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 13h16l-2 9H7L5 13z" fill="#6b3a1f"/><ellipse cx="13" cy="13" rx="8" ry="2.5" fill="#8b5230"/><path d="M9 12.5 Q13 10 17 12.5" stroke="#c8a060" stroke-width="1.2" fill="none"/></svg>
-          </div>
-          <div class="menu-card-name">คาปูชิโน่</div>
-          <div class="menu-card-desc">กาแฟนมฟองนุ่มฟู คลาสสิกสไตล์อิตาลี</div>
-          <div class="menu-card-price">75 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="6" y="10" width="14" height="12" rx="2" fill="#8b5230"/><rect x="8" y="12" width="10" height="4" rx="1" fill="#c47c2e"/><path d="M9 8h8v2H9z" fill="#c47c2e"/></svg>
-          </div>
-          <div class="menu-card-name">กาแฟดำ (โอลด์แบล็ค)</div>
-          <div class="menu-card-desc">กาแฟดริปช้า หอมลึก รสชาติสะอาด ไม่เติมน้ำตาล</div>
-          <div class="menu-card-price">65 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M7 11h12l-1.5 11H8.5L7 11z" fill="#5c3317"/><path d="M7 11h12" stroke="#8b5230" stroke-width="2" stroke-linecap="round" fill="none"/><rect x="11" y="4" width="4" height="7" rx="2" fill="#8b5230"/></svg>
-          </div>
-          <div class="menu-card-name">กาแฟเย็นบลอนด์</div>
-          <div class="menu-card-desc">กาแฟคั่วอ่อน รสผลไม้ละเอียด เสิร์ฟบนน้ำแข็งก้อน</div>
-          <div class="menu-card-price">80 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 13h16l-1.5 9H6.5L5 13z" fill="#3d1f08"/><ellipse cx="13" cy="13" rx="8" ry="2.5" fill="#5c3317"/><path d="M10 15 Q13 13 16 15" stroke="#8b5230" stroke-width="1.2" fill="none"/><circle cx="13" cy="11" r="2" fill="#f5e6c8" opacity="0.5"/></svg>
-          </div>
-          <div class="menu-card-name">มอคค่า</div>
-          <div class="menu-card-desc">กาแฟผสมช็อกโกแลต หวานหอม ท็อปด้วยวิปครีม</div>
-          <div class="menu-card-price">85 บาท</div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-subhead">กาแฟสดริมสายน้ำ · คลองสาน กรุงเทพฯ</p>
+        <h1 class="hero-title">บ้านกาแฟริมคลอง</h1>
+        <p class="hero-desc">
+          ร้านกาแฟไม้ริมน้ำในบรรยากาศอบอุ่นและเงียบสงบ เราคัดสรรเมล็ดกาแฟไทยคั่วสดใหม่ทุกสัปดาห์ เสิร์ฟคู่กับเบเกอรี่อบหอมกรุ่นทุกเช้า ให้คุณได้พักผ่อนและดื่มด่ำกับวิถีริมคลองอย่างแท้จริง
+        </p>
+        <div class="hero-actions">
+          <a href="https://line.me/R/ti/p/@demo-cafe" class="btn btn-line-main" rel="noopener noreferrer" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.5 2 2 5.8 2 10.6c0 3.2 2 6 5.1 7.4l-.8 3.2 3.8-1.9c.6.1 1.3.2 1.9.2 5.5 0 10-3.8 10-8.6S17.5 2 12 2z"/>
+            </svg>
+            <span>แอดไลน์ร้าน (@demo-cafe)</span>
+          </a>
+          <a href="tel:0812345678" class="btn btn-tel-main">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>081-234-5678</span>
+          </a>
+          <a href="#menu" class="btn btn-outline">
+            <span>ดูรายการเมนู</span>
+          </a>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Non-coffee -->
-    <div class="menu-category">
-      <h3 class="menu-cat-title">
-        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
-          <path d="M4 11h14l-1.5 8H5.5L4 11z" fill="#2e7d32" opacity="0.7"/>
-          <ellipse cx="11" cy="11" rx="7" ry="2" fill="#43a047"/>
-          <path d="M8 8.5 Q11 6 14 8.5" stroke="#43a047" stroke-width="1.3" fill="none"/>
-        </svg>
-        เครื่องดื่มไม่มีกาแฟ
-      </h3>
-      <div class="menu-grid">
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M7 11h12l-1.5 11H8.5L7 11z" fill="#2e7d32" opacity="0.8"/><path d="M10 9 Q13 6 16 9" stroke="#43a047" stroke-width="1.5" fill="none"/><path d="M9 14 Q13 12 17 14" stroke="#a5d6a7" stroke-width="1" fill="none" opacity="0.7"/></svg>
-          </div>
-          <div class="menu-card-name">ชาเขียวมัทฉะ</div>
-          <div class="menu-card-desc">มัทฉะแท้จากญี่ปุ่น ผสมนมสดหรือนมโอ๊ต ร้อน/เย็น</div>
-          <div class="menu-card-price">80 บาท</div>
+  <!-- EDITORIAL AMBIANCE SECTION -->
+  <section class="ambiance-section" aria-label="เรื่องราวและความเป็นมา">
+    <div class="ambiance-container">
+      <div class="ambiance-narrative">
+        <h2>ความเรียบง่ายและกลิ่นอายริมสายน้ำ</h2>
+        <p>
+          "บ้านกาแฟริมคลอง" ตั้งอยู่ในเรือนไม้เก่าริมคลองย่านคลองสาน ที่ได้รับการดูแลรักษาให้อยู่ในบรรยากาศร่มรื่นของต้นไม้ริมน้ำ ลมพัดเย็นสบายตลอดทั้งวัน เหมาะสำหรับการมานั่งอ่านหนังสือ ทำงาน หรือแวะพักจิบเครื่องดื่มสบายๆ ระหว่างวัน
+        </p>
+        <p>
+          กาแฟทุกแก้วเราสกัดจากเมล็ดคุณภาพของเกษตรกรไทย ทั้งคั่วเข้มหอมลึกและคั่วอ่อนกลิ่นผลไม้ พร้อมเครื่องดื่มคลายร้อนและขนมอบสดใหม่ที่ปรุงอย่างใส่ใจทุกเช้า
+        </p>
+        <div class="ambiance-quote">
+          <p>"บรรยากาศสงบ กาแฟสดกลิ่นหอม และสายน้ำที่ไหลเอื่อยอย่างไม่รีบร้อน"</p>
+          <span>ความตั้งใจของบ้านกาแฟริมคลอง</span>
         </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M7 11h12l-1.5 11H8.5L7 11z" fill="#d4730a" opacity="0.8"/><path d="M10 9 Q13 6 16 9" stroke="#f59300" stroke-width="1.5" fill="none"/></svg>
-          </div>
-          <div class="menu-card-name">ชานมไทย</div>
-          <div class="menu-card-desc">ชาไทยรสเข้ม สีสวยงาม ผสมนมข้นหวาน เย็นชื่นใจ</div>
-          <div class="menu-card-price">70 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M7 11h12l-1.5 11H8.5L7 11z" fill="#7b1fa2" opacity="0.7"/><path d="M10 9 Q13 6 16 9" stroke="#ab47bc" stroke-width="1.5" fill="none"/><path d="M9 14 Q13 12 17 14" stroke="#e1bee7" stroke-width="1" fill="none" opacity="0.7"/></svg>
-          </div>
-          <div class="menu-card-name">บลูเบอร์รี่สมูทตี้</div>
-          <div class="menu-card-desc">บลูเบอร์รี่ผสมโยเกิร์ต เข้มข้น สดชื่น เต็มไปด้วยวิตามิน</div>
-          <div class="menu-card-price">90 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M7 11h12l-1.5 11H8.5L7 11z" fill="#c8860a" opacity="0.7"/><ellipse cx="13" cy="11" rx="6" ry="2" fill="#f5c842"/></svg>
-          </div>
-          <div class="menu-card-name">เลมอนแฮนีย์โซดา</div>
-          <div class="menu-card-desc">มะนาวสดผสมน้ำผึ้งแท้ อัดแก๊ส ซ่า สดชื่นสุดๆ</div>
-          <div class="menu-card-price">75 บาท</div>
+      </div>
+      <div class="ambiance-photo-card">
+        <img src="img/coffee-craft.webp" width="800" height="534" alt="บาริสต้ากำลังรินนมทำลาเต้อาร์ตอย่างประณีตในถ้วยเซรามิก" loading="lazy" decoding="async">
+        <div class="ambiance-photo-caption">
+          <span>การชงอย่างประณีต</span>
+          <strong>สกัดสดใหม่ทุกแก้ว</strong>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Bakery -->
-    <div class="menu-category">
-      <h3 class="menu-cat-title">
-        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
-          <path d="M4 14 Q11 8 18 14 L18 18 Q11 20 4 18 Z" fill="#c47c2e" opacity="0.8"/>
-          <path d="M4 14 Q11 8 18 14" stroke="#e8a845" stroke-width="1.3" fill="none"/>
-        </svg>
-        เบเกอรี่อบสด
-      </h3>
-      <div class="menu-grid">
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><ellipse cx="13" cy="15" rx="9" ry="6" fill="#c47c2e"/><ellipse cx="13" cy="13" rx="9" ry="6" fill="#d4893a"/><path d="M7 10 Q13 6 19 10" stroke="#e8a845" stroke-width="1.3" fill="none"/></svg>
-          </div>
-          <div class="menu-card-name">ครัวซองต์เนย</div>
-          <div class="menu-card-desc">ครัวซองต์เนยสดอบกรอบ กลิ่นหอมอ่อนๆ อร่อยที่สุด</div>
-          <div class="menu-card-price">65 บาท</div>
+  <!-- MENU BOARD SECTION (Printed Menu Board Feel) -->
+  <section class="menu-section" id="menu" aria-label="เมนูอาหารและเครื่องดื่ม">
+    <div class="menu-header-editorial">
+      <h2>รายการเมนูประจำร้าน</h2>
+      <p>กาแฟคั่วสด เครื่องดื่มชงสดชื่น และเบเกอรี่ทำเองทุกวัน</p>
+    </div>
+
+    <div class="menu-board-wrap">
+
+      <!-- Category 1: กาแฟ (Coffee) -->
+      <div class="menu-category-block">
+        <div class="menu-category-header">
+          <h3>กาแฟสด (Coffee)</h3>
+          <span>เมล็ดคั่วคัดพิเศษ</span>
         </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="5" y="12" width="16" height="10" rx="3" fill="#8b5230"/><rect x="5" y="12" width="16" height="5" rx="2" fill="#c47c2e"/><path d="M9 9 Q13 6 17 9 L17 12 L9 12 Z" fill="#d4893a"/></svg>
+        <div class="menu-item-list">
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">เอสเปรสโซ่</span>
+              <span class="menu-item-price">60 บาท</span>
+            </div>
+            <p class="menu-item-desc">กาแฟสกัดเข้มข้น หอมกรุ่น ดื่มเพื่อความตื่นตัวสูงสุด</p>
           </div>
-          <div class="menu-card-name">บราวนี่ช็อกโกแลต</div>
-          <div class="menu-card-desc">บราวนี่เนื้อชุ่ม หวานนิดๆ เข้มข้นด้วยช็อกโกแลตแท้</div>
-          <div class="menu-card-price">75 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><ellipse cx="13" cy="16" rx="9" ry="5" fill="#8b5230"/><ellipse cx="13" cy="13" rx="9" ry="5" fill="#b06328"/><circle cx="13" cy="13" r="5" fill="#e8c89a"/><circle cx="13" cy="13" r="3" fill="#c47c2e"/></svg>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">ลาเต้ร้อน / เย็น</span>
+              <span class="menu-item-price">75 บาท</span>
+            </div>
+            <p class="menu-item-desc">เอสเปรสโซ่ผสมนมสดครีมมี่ ละมุนในทุกอึก</p>
           </div>
-          <div class="menu-card-name">มัฟฟินบลูเบอร์รี่</div>
-          <div class="menu-card-desc">มัฟฟินนุ่มฟู เต็มไปด้วยบลูเบอร์รี่สดในทุกคำ</div>
-          <div class="menu-card-price">70 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="4" y="14" width="18" height="8" rx="2" fill="#c47c2e"/><rect x="6" y="11" width="14" height="4" rx="1" fill="#d4893a"/><rect x="8" y="8" width="10" height="4" rx="1" fill="#e8a845"/></svg>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">คาปูชิโน่</span>
+              <span class="menu-item-price">75 บาท</span>
+            </div>
+            <p class="menu-item-desc">กาแฟนมฟองนุ่มฟู คลาสสิกสไตล์อิตาลี</p>
           </div>
-          <div class="menu-card-name">สโคนเนยสด + แยม</div>
-          <div class="menu-card-desc">สโคนกรอบนอกนุ่มใน เสิร์ฟพร้อมแยมสตรอว์เบอร์รี่และเนย</div>
-          <div class="menu-card-price">80 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><ellipse cx="13" cy="17" rx="9" ry="5" fill="#8b5230"/><ellipse cx="13" cy="14" rx="9" ry="5" fill="#c47c2e"/><path d="M8 12 Q13 9 18 12" stroke="#f5e6c8" stroke-width="1.5" fill="none" opacity="0.7"/></svg>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">กาแฟดำ (โอลด์แบล็ค)</span>
+              <span class="menu-item-price">65 บาท</span>
+            </div>
+            <p class="menu-item-desc">กาแฟดริปช้า หอมลึก รสชาติสะอาด ไม่เติมน้ำตาล</p>
           </div>
-          <div class="menu-card-name">เค้กชีสนิวยอร์ก</div>
-          <div class="menu-card-desc">ชีสเค้กเนื้อแน่น หนักกำลังดี รสชาติสมดุล ไม่หวานเกิน</div>
-          <div class="menu-card-price">95 บาท</div>
-        </div>
-        <div class="menu-card">
-          <div class="menu-card-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 18h16" stroke="#8b5230" stroke-width="2" stroke-linecap="round"/><path d="M7 14 Q13 8 19 14" fill="#c47c2e"/><path d="M9 11 Q13 7 17 11" fill="#d4893a"/></svg>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">กาแฟเย็นบลอนด์</span>
+              <span class="menu-item-price">80 บาท</span>
+            </div>
+            <p class="menu-item-desc">กาแฟคั่วอ่อน รสผลไม้ละเอียด เสิร์ฟบนน้ำแข็งก้อน</p>
           </div>
-          <div class="menu-card-name">โทสต์อโวคาโด</div>
-          <div class="menu-card-desc">ขนมปังโซร์โดวอบกรอบ ท็อปอโวคาโดสด ไข่ลวก และซอส</div>
-          <div class="menu-card-price">120 บาท</div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">มอคค่า</span>
+              <span class="menu-item-price">85 บาท</span>
+            </div>
+            <p class="menu-item-desc">กาแฟผสมช็อกโกแลต หวานหอม ท็อปด้วยวิปครีม</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- HOURS -->
-<section class="hours-section" id="hours">
-  <div class="section-inner" style="text-align:center">
-    <span class="section-tag">เวลาทำการ</span>
-    <h2 class="section-title">เปิดให้บริการ</h2>
-    <p class="section-sub">ยินดีต้อนรับทุกวัน ไม่มีวันหยุด</p>
-    <div class="hours-card">
+      <!-- Category 2: เครื่องดื่มไม่มีกาแฟ (Non-coffee) -->
+      <div class="menu-category-block">
+        <div class="menu-category-header">
+          <h3>เครื่องดื่มไม่มีกาแฟ (Non-Coffee)</h3>
+          <span>ชาและเครื่องดื่มผลไม้สดชื่น</span>
+        </div>
+        <div class="menu-item-list">
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">ชาเขียวมัทฉะ</span>
+              <span class="menu-item-price">80 บาท</span>
+            </div>
+            <p class="menu-item-desc">มัทฉะแท้จากญี่ปุ่น ผสมนมสดหรือนมโอ๊ต ร้อน/เย็น</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">ชานมไทย</span>
+              <span class="menu-item-price">70 บาท</span>
+            </div>
+            <p class="menu-item-desc">ชาไทยรสเข้ม สีสวยงาม ผสมนมข้นหวาน เย็นชื่นใจ</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">บลูเบอร์รี่สมูทตี้</span>
+              <span class="menu-item-price">90 บาท</span>
+            </div>
+            <p class="menu-item-desc">บลูเบอร์รี่ผสมโยเกิร์ต เข้มข้น สดชื่น เต็มไปด้วยวิตามิน</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">เลมอนแฮนีย์โซดา</span>
+              <span class="menu-item-price">75 บาท</span>
+            </div>
+            <p class="menu-item-desc">มะนาวสดผสมน้ำผึ้งแท้ อัดแก๊ส ซ่า สดชื่นสุดๆ</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mid-Menu Feature Banner -->
+      <div class="menu-feature-banner">
+        <img src="img/bakery-fresh.webp" width="800" height="534" alt="ครัวซองต์เนยสดอบใหม่วางเคียงคู่ถ้วยกาแฟบนโต๊ะไม้" loading="lazy" decoding="async">
+        <div class="menu-feature-content">
+          <h4>อบสดใหม่จากเตาทุกเช้า</h4>
+          <p>เบเกอรี่และของว่างทุกชิ้นของทางร้านใช้วัตถุดิบคุณภาพ เนยสดแท้ ไม่ใส่สารกันบูด อบสดพร้อมเสิร์ฟตั้งแต่เวลา 07:00 น. เพื่อให้คุณได้ทานคู่กับกาแฟถ้วยโปรดอย่างลงตัว</p>
+        </div>
+      </div>
+
+      <!-- Category 3: เบเกอรี่อบสด (Bakery) -->
+      <div class="menu-category-block">
+        <div class="menu-category-header">
+          <h3>เบเกอรี่อบสด (Fresh Bakery)</h3>
+          <span>ขนมอบและอาหารเช้าสไตล์โฮมเมด</span>
+        </div>
+        <div class="menu-item-list">
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">ครัวซองต์เนย</span>
+              <span class="menu-item-price">65 บาท</span>
+            </div>
+            <p class="menu-item-desc">ครัวซองต์เนยสดอบกรอบ กลิ่นหอมอ่อนๆ อร่อยที่สุด</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">บราวนี่ช็อกโกแลต</span>
+              <span class="menu-item-price">75 บาท</span>
+            </div>
+            <p class="menu-item-desc">บราวนี่เนื้อชุ่ม หวานนิดๆ เข้มข้นด้วยช็อกโกแลตแท้</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">มัฟฟินบลูเบอร์รี่</span>
+              <span class="menu-item-price">70 บาท</span>
+            </div>
+            <p class="menu-item-desc">มัฟฟินนุ่มฟู เต็มไปด้วยบลูเบอร์รี่สดในทุกคำ</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">สโคนเนยสด + แยม</span>
+              <span class="menu-item-price">80 บาท</span>
+            </div>
+            <p class="menu-item-desc">สโคนกรอบนอกนุ่มใน เสิร์ฟพร้อมแยมสตรอว์เบอร์รี่และเนย</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">เค้กชีสนิวยอร์ก</span>
+              <span class="menu-item-price">95 บาท</span>
+            </div>
+            <p class="menu-item-desc">ชีสเค้กเนื้อแน่น หนักกำลังดี รสชาติสมดุล ไม่หวานเกิน</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-top">
+              <span class="menu-item-name">โทสต์อโวคาโด</span>
+              <span class="menu-item-price">120 บาท</span>
+            </div>
+            <p class="menu-item-desc">ขนมปังโซร์โดวอบกรอบ ท็อปอโวคาโดสด ไข่ลวก และซอส</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOURS SECTION -->
+  <section class="hours-section" id="hours" aria-label="เวลาเปิดให้บริการ">
+    <div class="hours-container">
       <div class="hours-header">
-        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
-          <circle cx="18" cy="18" r="15" stroke="#f5e6c8" stroke-width="2" fill="none"/>
-          <path d="M18 10v8l5 5" stroke="#f5e6c8" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        </svg>
-        <div>
-          <h3>เวลาเปิด-ปิดร้าน</h3>
-          <p>บ้านกาแฟริมคลอง · ทุกวันไม่มีหยุด</p>
-        </div>
+        <h2>เวลาเปิดให้บริการ</h2>
+        <p>ยินดีต้อนรับทุกวัน มีที่นั่งทั้งห้องแอร์และระเบียงริมน้ำ</p>
       </div>
-      <table>
-        <caption class="sr-only">เวลาเปิดปิดร้านบ้านกาแฟริมคลอง</caption>
-        <tbody>
-          <tr>
-            <td>จันทร์ – ศุกร์</td>
-            <td>07:00 – 20:00 น. <span class="open-badge">เปิด</span></td>
-          </tr>
-          <tr>
-            <td>เสาร์ – อาทิตย์</td>
-            <td>07:00 – 21:00 น. <span class="open-badge">เปิดนานขึ้น</span></td>
-          </tr>
-          <tr>
-            <td>วันหยุดนักขัตฤกษ์</td>
-            <td>08:00 – 20:00 น.</td>
-          </tr>
-          <tr>
-            <td>Last order</td>
-            <td>30 นาทีก่อนปิด</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
 
-<!-- LOCATION -->
-<section class="location-section" id="location">
-  <div class="section-inner">
-    <span class="section-tag">ที่ตั้งร้าน</span>
-    <h2 class="section-title">มาหาเราได้เลย</h2>
-    <p class="section-sub">ริมคลองเจ้าพระยา บรรยากาศดี จอดรถสะดวก</p>
+      <div class="hours-card">
+        <div class="hours-card-top">
+          <span class="hours-card-title">บ้านกาแฟริมคลอง</span>
+          <div id="live-status-badge" class="status-badge" aria-live="polite">
+            <span class="status-dot"></span>
+            <span id="live-status-text">เปิดบริการทุกวัน</span>
+          </div>
+        </div>
+        <table class="hours-table">
+          <caption class="sr-only">ตารางเวลาเปิดและปิดร้านบ้านกาแฟริมคลอง</caption>
+          <tbody>
+            <tr>
+              <td>จันทร์ – ศุกร์</td>
+              <td>07:00 – 20:00 น.</td>
+            </tr>
+            <tr>
+              <td>เสาร์ – อาทิตย์</td>
+              <td>07:00 – 21:00 น.</td>
+            </tr>
+            <tr>
+              <td>วันหยุดนักขัตฤกษ์</td>
+              <td>08:00 – 20:00 น.</td>
+            </tr>
+            <tr>
+              <td>สั่งเครื่องดื่มรอบสุดท้าย (Last Order)</td>
+              <td>30 นาทีก่อนเวลาปิดร้าน</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="hours-note">
+          มีบริการ Wi-Fi ความเร็วสูงฟรี และปลั๊กไฟสำหรับนั่งทำงานริมคลอง
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION & MAP SECTION -->
+  <section class="location-section" id="location" aria-label="ที่ตั้งและการเดินทาง">
+    <div class="location-header">
+      <h2>ที่ตั้งและการเดินทาง</h2>
+      <p>ติดริมคลอง บรรยากาศร่มรื่น เดินทางสะดวกและมีที่จอดรถ</p>
+    </div>
+
     <div class="location-grid">
-      <div class="location-info">
-        <div class="info-row">
-          <div class="info-icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2C7.7 2 5 4.7 5 8c0 4.5 6 12 6 12s6-7.5 6-12c0-3.3-2.7-6-6-6zm0 8.5c-1.4 0-2.5-1.1-2.5-2.5S9.6 5.5 11 5.5s2.5 1.1 2.5 2.5S12.4 10.5 11 10.5z" fill="#c47c2e"/></svg>
+      <!-- Info Card -->
+      <div class="location-card">
+        <div class="info-group">
+          <div class="info-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
           </div>
-          <div>
-            <div class="info-label">ที่อยู่</div>
-            <div class="info-value">123 ซอยริมคลอง 5 ถนนเจริญนคร<br>คลองสาน กรุงเทพฯ 10600</div>
-          </div>
-        </div>
-        <div class="info-row">
-          <div class="info-icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 4h5l2 5-2.5 2c1 2 3 4 5 5L16 13.5l5 2v4.5c0 1-6 3-10-1S2 11 3 5l1-1z" stroke="#c47c2e" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div>
-            <div class="info-label">โทรศัพท์</div>
-            <div class="info-value"><a href="tel:0812345678" style="color:#8c4708;font-weight:700;">081-234-5678</a></div>
+          <div class="info-meta">
+            <h3>ที่อยู่ร้าน</h3>
+            <p>123 ซอยริมคลอง 5 ถนนเจริญนคร<br>แขวงคลองสาน เขตคลองสาน กรุงเทพฯ 10600</p>
           </div>
         </div>
-        <div class="info-row">
-          <div class="info-icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2C6.1 2 2 5.6 2 10c0 2.8 1.6 5.3 4 6.8l-.8 3 3.3-1.7c.8.2 1.6.3 2.5.3 4.9 0 9-3.6 9-8S15.9 2 11 2z" fill="#06c755"/></svg>
+
+        <div class="info-group">
+          <div class="info-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
           </div>
-          <div>
-            <div class="info-label">LINE</div>
-            <div class="info-value"><a href="https://line.me/R/ti/p/@demo-cafe" style="color:#007a30;font-weight:700;" rel="noopener noreferrer" target="_blank">@demo-cafe</a></div>
+          <div class="info-meta">
+            <h3>โทรศัพท์ติดต่อ</h3>
+            <p><a href="tel:0812345678">081-234-5678</a></p>
           </div>
         </div>
-        <div class="contact-btns">
-          <a href="https://line.me/R/ti/p/@demo-cafe" class="btn-line" rel="noopener noreferrer" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2C5.6 2 2 5.1 2 9c0 2.6 1.5 4.8 3.8 6.1l-.7 2.6 3-1.5c.6.1 1.2.2 1.9.2 4.4 0 8-3.1 8-7S14.4 2 10 2z" fill="#fff"/></svg>
-            แอดไลน์
+
+        <div class="info-group">
+          <div class="info-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.5 2 2 5.8 2 10.6c0 3.2 2 6 5.1 7.4l-.8 3.2 3.8-1.9c.6.1 1.3.2 1.9.2 5.5 0 10-3.8 10-8.6S17.5 2 12 2z"/>
+            </svg>
+          </div>
+          <div class="info-meta">
+            <h3>LINE Official</h3>
+            <p><a href="https://line.me/R/ti/p/@demo-cafe" rel="noopener noreferrer" target="_blank">@demo-cafe</a></p>
+          </div>
+        </div>
+
+        <div class="location-actions">
+          <a href="https://line.me/R/ti/p/@demo-cafe" class="btn btn-line-main" rel="noopener noreferrer" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.5 2 2 5.8 2 10.6c0 3.2 2 6 5.1 7.4l-.8 3.2 3.8-1.9c.6.1 1.3.2 1.9.2 5.5 0 10-3.8 10-8.6S17.5 2 12 2z"/>
+            </svg>
+            <span>แอด LINE สอบถาม</span>
           </a>
-          <a href="tel:0812345678" class="btn-tel">
-            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3h4l1.5 4L7 9c1 2 3 4 5 5l2-2.5L18 13v4c0 1-5 3-9-1S2 8 3 4l1-1z" stroke="#1a0800" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            โทรเลย
+          <a href="tel:0812345678" class="btn btn-tel-main">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>โทรหาร้าน</span>
           </a>
         </div>
       </div>
-      <!-- MAP FACADE -->
-      <div class="map-wrapper" id="map-wrapper">
-        <div class="map-placeholder" id="map-placeholder">
-          <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
-            <circle cx="28" cy="28" r="26" fill="#f0dfc0"/>
-            <path d="M28 12C20.3 12 14 18.3 14 26c0 10 14 26 14 26s14-16 14-26c0-7.7-6.3-14-14-14zm0 19.5c-3 0-5.5-2.5-5.5-5.5s2.5-5.5 5.5-5.5 5.5 2.5 5.5 5.5-2.5 5.5-5.5 5.5z" fill="#c47c2e"/>
-          </svg>
-          <p>แผนที่จะโหลดเมื่อคุณแตะปุ่มด้านล่าง<br><small style="color:#5c3317">เพื่อประหยัดโควต้าอินเทอร์เน็ต</small></p>
-          <button class="btn-map" id="map-btn" onclick="loadMap()" aria-label="แตะเพื่อโหลดแผนที่ Google Maps">
-            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2C6.1 2 3 5.1 3 9c0 5 7 11 7 11s7-6 7-11c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S8.6 6.5 10 6.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z" fill="#f5e6c8"/></svg>
-            แตะเพื่อโหลดแผนที่
+
+      <!-- MAP CONTAINER (Lazy Click-to-load Facade) -->
+      <div class="map-container-box" id="map-wrapper">
+        <div class="map-facade-content" id="map-placeholder">
+          <img src="img/canal-terrace.webp" width="800" height="534" alt="มุมมองโต๊ะนั่งริมคลองและต้นไม้ร่มรื่น" class="map-facade-img" loading="lazy" decoding="async">
+          <h3>แผนที่การเดินทาง Google Maps</h3>
+          <p>แตะปุ่มด้านล่างเพื่อโหลดแผนที่นำทางแบบอินเทอร์แอคทีฟ (ประหยัดอินเทอร์เน็ตในการเปิดหน้าแรก)</p>
+          <button type="button" class="btn-load-map" id="map-btn" onclick="loadMap()" aria-label="แตะเพื่อโหลดแผนที่ Google Maps">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>แตะเพื่อโหลดแผนที่นำทาง</span>
           </button>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">บ้านกาแฟริมคลอง</div>
-  <div class="footer-tagline">กาแฟสด · เบเกอรี่ · บรรยากาศริมคลอง</div>
-  <div class="footer-links">
-    <a href="#menu">เมนู</a>
-    <a href="#hours">เวลาเปิด</a>
-    <a href="#location">ที่ตั้ง</a>
-    <a href="https://line.me/R/ti/p/@demo-cafe" rel="noopener noreferrer" target="_blank">LINE</a>
-    <a href="tel:0812345678">081-234-5678</a>
+</main>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">บ้านกาแฟริมคลอง</div>
+    <p class="footer-tagline">กาแฟสดคั่วใหม่ · อาหารโฮมเมด · วิถีชีวิตริมสายน้ำ</p>
+    <nav class="footer-nav" aria-label="เมนูส่วนท้าย">
+      <a href="#menu">เมนูอาหาร</a>
+      <a href="#hours">เวลาทำการ</a>
+      <a href="#location">ที่ตั้งร้าน</a>
+      <a href="https://line.me/R/ti/p/@demo-cafe" rel="noopener noreferrer" target="_blank">LINE: @demo-cafe</a>
+      <a href="tel:0812345678">โทร: 081-234-5678</a>
+    </nav>
+    <div class="footer-divider" aria-hidden="true"></div>
+    <p class="footer-demo-note">
+      <strong>⚠️ เว็บไซต์ตัวอย่าง (Demo Site)</strong><br>
+      ร้าน "บ้านกาแฟริมคลอง" เป็นร้านสมมติที่สร้างขึ้นเพื่อแสดงผลงานการออกแบบและพัฒนาเว็บไซต์เท่านั้น<br>
+      ไม่ใช่ร้านค้าจริง ข้อมูลเมนู ราคา และที่อยู่เป็นข้อมูลเพื่อการสาธิต
+    </p>
+    <p class="footer-credits">
+      ภาพถ่ายโดย Maxine Xin, Chevanon Photography, Alesia Talkachova, Furkan Özavcı บน Pexels (<a href="CREDITS.md">ดูเครดิตภาพถ่ายทั้งหมด</a>)
+    </p>
   </div>
-  <div class="footer-divider"></div>
-  <p class="footer-demo">
-    <strong>⚠️ เว็บไซต์ตัวอย่าง (Demo Site)</strong><br>
-    ร้าน "บ้านกาแฟริมคลอง" เป็นร้านสมมติ สร้างขึ้นเพื่อแสดงผลงานออกแบบเว็บไซต์เท่านั้น<br>
-    ไม่ใช่ร้านที่มีอยู่จริง ข้อมูลทั้งหมดเป็นข้อมูลสมมติ
-  </p>
 </footer>
 
-<!-- STICKY BOTTOM BAR (mobile) -->
-<div class="sticky-bar" role="navigation" aria-label="ปุ่มติดต่อด่วน">
-  <a href="https://line.me/R/ti/p/@demo-cafe" class="btn-line" rel="noopener noreferrer" target="_blank" style="text-decoration:none">
-    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2C5.6 2 2 5.1 2 9c0 2.6 1.5 4.8 3.8 6.1l-.7 2.6 3-1.5c.6.1 1.2.2 1.9.2 4.4 0 8-3.1 8-7S14.4 2 10 2z" fill="#fff"/></svg>
-    แอดไลน์
+<!-- MOBILE STICKY BOTTOM BAR -->
+<aside class="mobile-bottom-bar" aria-label="ปุ่มติดต่อด่วนบนมือถือ">
+  <a href="https://line.me/R/ti/p/@demo-cafe" class="mobile-btn-line" rel="noopener noreferrer" target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.5 2 2 5.8 2 10.6c0 3.2 2 6 5.1 7.4l-.8 3.2 3.8-1.9c.6.1 1.3.2 1.9.2 5.5 0 10-3.8 10-8.6S17.5 2 12 2z"/>
+    </svg>
+    <span>แอด LINE</span>
   </a>
-  <a href="tel:0812345678" class="btn-tel" style="text-decoration:none">
-    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3h4l1.5 4L7 9c1 2 3 4 5 5l2-2.5L18 13v4c0 1-5 3-9-1S2 8 3 4l1-1z" stroke="#1a0800" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    โทรเลย
+  <a href="tel:0812345678" class="mobile-btn-tel">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+    <span>โทรหาร้าน</span>
   </a>
-</div>
+</aside>
 
-<style>
-  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-</style>
-
+<!-- JAVASCRIPT: Lazy Map Loader & Live Hours Calculation -->
 <script>
+  // Lazy Google Map Loader (preserving original functional behavior)
   function loadMap() {
     var wrapper = document.getElementById('map-wrapper');
     var placeholder = document.getElementById('map-placeholder');
     var iframe = document.createElement('iframe');
-    iframe.src = 'https://www.google.com/maps?q=13.7563,100.5018&z=15&output=embed';
+    iframe.src = 'https://www.google.com/maps?q=13.7258,100.5050&z=15&output=embed';
     iframe.loading = 'lazy';
     iframe.width = '100%';
-    iframe.height = '350';
-    iframe.style.cssText = 'border:0;border-radius:12px;display:block;';
+    iframe.height = '380';
+    iframe.style.cssText = 'border:0;display:block;width:100%;height:380px;';
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
-    iframe.title = 'แผนที่ Google Maps';
-    placeholder.style.display = 'none';
-    wrapper.style.minHeight = '350px';
-    wrapper.style.display = 'block';
+    iframe.title = 'แผนที่ตั้งร้านบ้านกาแฟริมคลอง บน Google Maps';
+    if (placeholder) {
+      placeholder.style.display = 'none';
+    }
+    wrapper.innerHTML = '';
     wrapper.appendChild(iframe);
   }
+
+  // Real-time Operating Hours Indicator (Bangkok Time UTC+7)
+  (function updateOpenStatus() {
+    var badge = document.getElementById('live-status-badge');
+    var text = document.getElementById('live-status-text');
+    if (!badge || !text) return;
+
+    try {
+      var now = new Date();
+      // UTC to Bangkok (UTC+7)
+      var utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
+      var bkkTime = new Date(utcTime + (3600000 * 7));
+      var day = bkkTime.getDay(); // 0 is Sunday, 6 is Saturday
+      var hour = bkkTime.getHours();
+      var min = bkkTime.getMinutes();
+      var currentDec = hour + (min / 60);
+
+      var isOpen = false;
+      var closeHour = 20;
+
+      if (day === 0 || day === 6) {
+        // Sat - Sun: 07:00 - 21:00
+        closeHour = 21;
+        isOpen = (currentDec >= 7 && currentDec < 21);
+      } else {
+        // Mon - Fri: 07:00 - 20:00
+        closeHour = 20;
+        isOpen = (currentDec >= 7 && currentDec < 20);
+      }
+
+      if (isOpen) {
+        badge.className = 'status-badge open';
+        text.textContent = 'ขณะนี้ร้านเปิดบริการ (ปิด ' + closeHour + ':00 น.)';
+      } else {
+        badge.className = 'status-badge closed';
+        text.textContent = 'ขณะนี้ร้านปิดบริการ (เปิด 07:00 น.)';
+      }
+    } catch (e) {
+      // Fallback
+    }
+  })();
 </script>
+
 </body>
 </html>
