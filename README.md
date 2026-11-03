@@ -14,8 +14,8 @@
 
 | เว็บไซต์ตัวอย่าง (Demo) | โฟลเดอร์ | Live URL | รายละเอียดโดยย่อ |
 | :--- | :--- | :--- | :--- |
-| **บ้านกาแฟริมคลอง** (Cafe) | `cafe/` | [https://demo-cafe.pages.dev](https://demo-cafe.pages.dev) | ร้านกาแฟบรรยากาศอบอุ่น เมนูเครื่องดื่ม-เบเกอรี่ ตารางเวลาเปิด-ปิด แผนที่ Google Maps แบบ Click-to-load และแถบติดต่อด่วนบนมือถือ (โทร / LINE) |
-| **ณิชา เวลเนส สปา** (Spa & Clinic) | `spa/` | [https://demo-spa.pages.dev](https://demo-spa.pages.dev) | คลินิก/สปาเพื่อสุขภาพ รายการบริการ รีวิวลูกค้า แบบฟอร์มจองคิวออนไลน์เชื่อมต่อ Supabase REST API พร้อม Honeypot ป้องกันสแปม และช่องกดยินยอม PDPA |
+| **บ้านกาแฟริมคลอง** (Cafe) | `cafe/` | [https://demo-cafe-dt1.pages.dev](https://demo-cafe-dt1.pages.dev) | ร้านกาแฟบรรยากาศอบอุ่น เมนูเครื่องดื่ม-เบเกอรี่ ตารางเวลาเปิด-ปิด แผนที่ Google Maps แบบ Click-to-load และแถบติดต่อด่วนบนมือถือ (โทร / LINE) |
+| **ณิชา เวลเนส สปา** (Spa & Clinic) | `spa/` | [https://demo-spa-6vb.pages.dev](https://demo-spa-6vb.pages.dev) | คลินิก/สปาเพื่อสุขภาพ รายการบริการ รีวิวลูกค้า แบบฟอร์มจองคิวออนไลน์เชื่อมต่อ Supabase REST API พร้อม Honeypot ป้องกันสแปม และช่องกดยินยอม PDPA |
 | **เซรั่มใบบัวบก ลูน่า เฮิร์บ** (Single Product) | `product/` | [https://demo-product.pages.dev](https://demo-product.pages.dev) | หน้าเซลเพจสินค้าเดี่ยว โปรโมชัน สรรพคุณ วิธีใช้ คำถามที่พบบ่อย (FAQ Accordion) ปุ่มสั่งซื้อผ่าน LINE และโค้ด Meta / TikTok Pixel แบบ Commented-out พร้อมใช้งาน |
 
 ---

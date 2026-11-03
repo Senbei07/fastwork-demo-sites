@@ -71,12 +71,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   --green-light:#56a86a;
   --gold:#c9a84c;
   --gold-light:#e2c97e;
+  --gold-text:#876214;
   --cream:#faf8f3;
   --cream-dark:#f0ebe0;
   --white:#ffffff;
   --text-dark:#1a2e1e;
   --text-mid:#3d5a42;
-  --text-muted:#6b8870;
+  --text-muted:#4b6b50;
   --shadow-sm:0 2px 8px rgba(26,74,46,.10);
   --shadow-md:0 6px 24px rgba(26,74,46,.14);
   --shadow-lg:0 16px 48px rgba(26,74,46,.18);
@@ -142,19 +143,19 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .hero h1{font-size:clamp(1.6rem,5vw,2.6rem);font-weight:800;line-height:1.25;margin-bottom:.5rem;color:var(--white)}
 .hero-sub{font-size:clamp(.95rem,2.5vw,1.1rem);color:rgba(255,255,255,.82);margin-bottom:1.5rem;max-width:400px;margin-left:auto;margin-right:auto}
 .price-row{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:1.75rem;flex-wrap:wrap}
-.price-original{font-size:1.05rem;color:rgba(255,255,255,.5);text-decoration:line-through}
+.price-original{font-size:1.05rem;color:rgba(255,255,255,.72);text-decoration:line-through}
 .price-current{font-size:2rem;font-weight:800;color:var(--gold-light)}
-.price-badge{background:var(--gold);color:var(--green-dark);font-size:.75rem;font-weight:800;padding:.25rem .6rem;border-radius:6px;letter-spacing:.04em}
+.price-badge{background:var(--gold);color:#0d2818;font-size:.75rem;font-weight:800;padding:.25rem .6rem;border-radius:6px;letter-spacing:.04em}
 .btn-line{
   display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  background:var(--gold);color:var(--green-dark);
+  background:var(--gold);color:#0d2818;
   font-size:1.05rem;font-weight:800;padding:.9rem 2rem;
   border-radius:50px;min-height:52px;min-width:220px;
   box-shadow:0 4px 20px rgba(201,168,76,.4);
   transition:background .2s,transform .15s,box-shadow .2s;
   letter-spacing:.01em;
 }
-.btn-line:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,.5)}
+.btn-line:hover{background:var(--gold-light);color:#0d2818;transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,.5)}
 .btn-line:active{transform:translateY(0)}
 .hero-bottle{position:relative;z-index:1;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35))}
 
@@ -168,7 +169,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* ===== SECTION BASE ===== */
 section{padding:3rem 1.25rem}
-.section-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.section-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);margin-bottom:.4rem}
 .section-title{font-size:clamp(1.3rem,4vw,1.85rem);font-weight:800;color:var(--green-dark);line-height:1.3;margin-bottom:.6rem}
 .section-sub{color:var(--text-muted);font-size:.95rem;max-width:500px}
 .section-header{margin-bottom:2rem}
@@ -208,7 +209,7 @@ section{padding:3rem 1.25rem}
 /* ===== INGREDIENTS HIGHLIGHT ===== */
 .ingredients{background:var(--green-dark);color:var(--white);padding:3rem 1.25rem;text-align:center}
 .ingredients .section-title{color:var(--gold-light)}
-.ingredients .section-label{color:var(--gold)}
+.ingredients .section-label{color:var(--gold-light)}
 .ingredients .section-sub{color:rgba(255,255,255,.7);margin:0 auto 2rem}
 .ing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:600px;margin:0 auto}
 .ing-card{
@@ -267,14 +268,14 @@ details[open] .summary-chevron{transform:rotate(180deg)}
 
 /* ===== FOOTER ===== */
 .site-footer{
-  background:var(--green-dark);color:rgba(255,255,255,.65);
+  background:var(--green-dark);color:rgba(255,255,255,.75);
   padding:2rem 1.25rem;text-align:center;font-size:.8rem;line-height:1.7;
 }
 .footer-logo{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:.75rem;color:var(--gold-light);font-weight:700;font-size:1rem}
 .footer-demo-note{
   margin-top:1rem;padding:.75rem 1rem;
   background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.2);
-  border-radius:8px;font-size:.78rem;color:rgba(255,255,255,.55);
+  border-radius:8px;font-size:.78rem;color:rgba(255,255,255,.75);
 }
 
 /* ===== STICKY MOBILE BAR ===== */
@@ -341,7 +342,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
     </svg>
     <span>ลูน่า เฮิร์บ</span>
   </div>
-  <a href="https://line.me/R/ti/p/@demo-shop" class="header-cta" target="_blank" rel="noopener noreferrer" aria-label="สั่งซื้อทาง LINE">
+  <a href="https://line.me/R/ti/p/@demo-shop" class="header-cta" target="_blank" rel="noopener noreferrer" aria-label="สั่งซื้อ LINE">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
       <rect width="20" height="20" rx="5" fill="#06C755"/>
       <path d="M10 4C6.69 4 4 6.24 4 9c0 1.77 1.09 3.33 2.73 4.28l-.48 1.78 2.04-1.06A7.4 7.4 0 0010 14c3.31 0 6-2.24 6-5s-2.69-5-6-5Z" fill="#fff"/>
@@ -497,7 +498,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
       </svg>
       สั่งซื้อทาง LINE
     </a>
-    <p style="margin-top:.8rem;font-size:.78rem;color:rgba(255,255,255,.55);">จัดส่งทุกวัน · รับประกันสินค้าแท้ · ส่งฟรีเมื่อซื้อ 2 ขวดขึ้นไป</p>
+    <p style="margin-top:.8rem;font-size:.78rem;color:rgba(255,255,255,.72);">จัดส่งทุกวัน · รับประกันสินค้าแท้ · ส่งฟรีเมื่อซื้อ 2 ขวดขึ้นไป</p>
   </div>
 </section>
 
@@ -677,9 +678,9 @@ details[open] .summary-chevron{transform:rotate(180deg)}
     <h2 class="section-title" id="reviews-heading">เสียงจากผู้ใช้จริง</h2>
     <p class="section-sub">รีวิวจากลูกค้าที่ใช้ผลิตภัณฑ์จริง ไม่ผ่านการแต่งเติม</p>
   </div>
-  <div class="reviews-grid" role="list">
+  <div class="reviews-grid">
     <!-- Review 1 -->
-    <article class="review-card" role="listitem">
+    <article class="review-card">
       <div class="review-header">
         <div class="reviewer-avatar" aria-hidden="true">พ</div>
         <div>
@@ -687,7 +688,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
           <p class="reviewer-meta">ผู้ใช้จริง · ใช้มา 2 เดือน</p>
         </div>
       </div>
-      <div class="stars" aria-label="5 ดาวจาก 5 ดาว">
+      <div class="stars">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
@@ -698,7 +699,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
       <span class="review-tag">ผิวธรรมดา-แห้ง</span>
     </article>
     <!-- Review 2 -->
-    <article class="review-card" role="listitem">
+    <article class="review-card">
       <div class="review-header">
         <div class="reviewer-avatar" aria-hidden="true" style="background:linear-gradient(135deg,#c9a84c,#1a4a2e)">ก</div>
         <div>
@@ -706,7 +707,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
           <p class="reviewer-meta">ผู้ใช้จริง · ใช้มา 6 สัปดาห์</p>
         </div>
       </div>
-      <div class="stars" aria-label="5 ดาวจาก 5 ดาว">
+      <div class="stars">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
@@ -717,7 +718,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
       <span class="review-tag">ผิวแพ้ง่าย</span>
     </article>
     <!-- Review 3 -->
-    <article class="review-card" role="listitem">
+    <article class="review-card">
       <div class="review-header">
         <div class="reviewer-avatar" aria-hidden="true" style="background:linear-gradient(135deg,#3d8a55,#c9a84c)">ส</div>
         <div>
@@ -725,7 +726,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
           <p class="reviewer-meta">ผู้ใช้จริง · ใช้มา 3 เดือน</p>
         </div>
       </div>
-      <div class="stars" aria-label="5 ดาวจาก 5 ดาว">
+      <div class="stars">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
@@ -736,7 +737,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
       <span class="review-tag">ผิวผสม-มัน</span>
     </article>
     <!-- Review 4 -->
-    <article class="review-card" role="listitem">
+    <article class="review-card">
       <div class="review-header">
         <div class="reviewer-avatar" aria-hidden="true" style="background:linear-gradient(135deg,#1a4a2e,#56a86a)">น</div>
         <div>
@@ -744,7 +745,7 @@ details[open] .summary-chevron{transform:rotate(180deg)}
           <p class="reviewer-meta">ผู้ใช้จริง · ใช้มา 5 สัปดาห์</p>
         </div>
       </div>
-      <div class="stars" aria-label="4 ดาวจาก 5 ดาว">
+      <div class="stars">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.5 5.5H14.5L10.5 8.5 12 13 8 10.2 4 13 5.5 8.5 1.5 5.5H6.5Z" fill="#c9a84c"/></svg>

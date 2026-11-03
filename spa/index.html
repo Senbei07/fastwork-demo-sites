@@ -18,18 +18,18 @@
 
     :root {
       --sage: #7a9e7e;
-      --sage-dark: #5c7c60;
+      --sage-dark: #456649;
       --sage-light: #a8c5ac;
       --sage-pale: #e8f0e9;
       --gold: #c8a96e;
       --gold-light: #dfc08a;
-      --gold-dark: #a07840;
+      --gold-dark: #825c1e;
       --cream: #f5f0e8;
       --cream-dark: #ede5d5;
       --white: #ffffff;
       --text-dark: #2c2c2c;
       --text-mid: #4a4a4a;
-      --text-light: #6b6b6b;
+      --text-light: #555555;
       --error: #c0392b;
       --success: #27643d;
       --radius: 12px;
@@ -175,7 +175,7 @@
       color: var(--white);
       box-shadow: 0 4px 16px rgba(92,124,96,0.35);
     }
-    .btn-primary:hover { background: var(--sage); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(92,124,96,0.4); }
+    .btn-primary:hover { background: #3a563d; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(69,102,73,0.4); }
     .btn-outline {
       background: transparent;
       color: var(--sage-dark);
@@ -526,7 +526,7 @@
       width: 100%;
       min-height: 56px;
       font-size: 1.05rem;
-      background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+      background: linear-gradient(135deg, #3a563d, var(--sage-dark));
       color: var(--white);
       border: none;
       border-radius: 50px;
@@ -534,7 +534,7 @@
       font-weight: 700;
       cursor: pointer;
       transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px rgba(92,124,96,0.4);
+      box-shadow: 0 4px 16px rgba(69,102,73,0.4);
       letter-spacing: 0.02em;
     }
     .btn-submit:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); }
@@ -584,7 +584,7 @@
     /* ===== FOOTER ===== */
     footer {
       background: #1e2b20;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.85);
       padding: 2.5rem 0 2rem;
       font-size: 0.85rem;
       text-align: center;
@@ -604,9 +604,9 @@
       margin: 1rem auto;
       max-width: 620px;
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.8);
     }
-    footer .footer-copy { color: rgba(255,255,255,0.4); font-size: 0.78rem; margin-top: 0.5rem; }
+    footer .footer-copy { color: rgba(255,255,255,0.65); font-size: 0.78rem; margin-top: 0.5rem; }
 
     /* ===== HIDDEN HONEYPOT ===== */
     .hp-field {
@@ -751,9 +751,9 @@
         <p class="section-subtitle">คัดสรรเฉพาะวัตถุดิบธรรมชาติชั้นดี ผสานภูมิปัญญาไทยกับเทคนิคสมัยใหม่</p>
       </header>
 
-      <div class="services-grid" role="list">
+      <div class="services-grid">
 
-        <article class="service-card" role="listitem">
+        <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
               <path d="M14 4 C14 4 8 8 8 14 C8 18 10 21 14 22 C18 21 20 18 20 14 C20 8 14 4 14 4Z" fill="#7a9e7e" opacity="0.5"/>
@@ -768,7 +768,7 @@
           <div class="service-price">500฿ <span class="price-unit">/ ชั่วโมง</span></div>
         </article>
 
-        <article class="service-card" role="listitem">
+        <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
               <circle cx="14" cy="10" r="5" fill="#c8a96e" opacity="0.4"/>
@@ -783,7 +783,7 @@
           <div class="service-price">700฿ <span class="price-unit">/ ชั่วโมง</span></div>
         </article>
 
-        <article class="service-card" role="listitem">
+        <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
               <ellipse cx="14" cy="14" rx="10" ry="8" fill="#f5f0e8" stroke="#c8a96e" stroke-width="1.5"/>
@@ -797,7 +797,7 @@
           <div class="service-price">800฿ <span class="price-unit">/ ครั้ง</span></div>
         </article>
 
-        <article class="service-card" role="listitem">
+        <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
               <rect x="6" y="12" width="16" height="12" rx="3" fill="#a8c5ac" opacity="0.5"/>
@@ -810,7 +810,7 @@
           <div class="service-price">400฿ <span class="price-unit">/ 45 นาที</span></div>
         </article>
 
-        <article class="service-card" role="listitem">
+        <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
               <path d="M5 20 Q10 16 14 20 Q18 24 23 20" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round" fill="none"/>
@@ -824,7 +824,7 @@
           <div class="service-price">450฿ <span class="price-unit">/ ชั่วโมง</span></div>
         </article>
 
-        <article class="service-card" role="listitem">
+        <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
               <path d="M8 22 Q8 14 14 10 Q20 14 20 22" fill="#a8c5ac" opacity="0.4"/>
@@ -919,10 +919,10 @@
         <p class="section-subtitle">ความพึงพอใจของลูกค้าคือสิ่งที่เราภาคภูมิใจที่สุด</p>
       </header>
 
-      <div class="reviews-grid" role="list">
+      <div class="reviews-grid">
 
-        <article class="review-card" role="listitem">
-          <div class="review-stars" aria-label="5 ดาวจาก 5">
+        <article class="review-card">
+          <div class="review-stars">
             <!-- 5 stars -->
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 2l1.8 5h5.2l-4.2 3 1.6 5L9 12l-4.4 3 1.6-5L2 7h5.2z" fill="#c8a96e"/></svg>
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 2l1.8 5h5.2l-4.2 3 1.6 5L9 12l-4.4 3 1.6-5L2 7h5.2z" fill="#c8a96e"/></svg>
@@ -940,8 +940,8 @@
           </div>
         </article>
 
-        <article class="review-card" role="listitem">
-          <div class="review-stars" aria-label="5 ดาวจาก 5">
+        <article class="review-card">
+          <div class="review-stars">
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 2l1.8 5h5.2l-4.2 3 1.6 5L9 12l-4.4 3 1.6-5L2 7h5.2z" fill="#c8a96e"/></svg>
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 2l1.8 5h5.2l-4.2 3 1.6 5L9 12l-4.4 3 1.6-5L2 7h5.2z" fill="#c8a96e"/></svg>
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 2l1.8 5h5.2l-4.2 3 1.6 5L9 12l-4.4 3 1.6-5L2 7h5.2z" fill="#c8a96e"/></svg>
@@ -958,8 +958,8 @@
           </div>
         </article>
 
-        <article class="review-card" role="listitem">
-          <div class="review-stars" aria-label="5 ดาวจาก 5">
+        <article class="review-card">
+          <div class="review-stars">
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 2l1.8 5h5.2l-4.2 3 1.6 5L9 12l-4.4 3 1.6-5L2 7h5.2z" fill="#c8a96e"/></svg>
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 2l1.8 5h5.2l-4.2 3 1.6 5L9 12l-4.4 3 1.6-5L2 7h5.2z" fill="#c8a96e"/></svg>
             <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M9 2l1.8 5h5.2l-4.2 3 1.6 5L9 12l-4.4 3 1.6-5L2 7h5.2z" fill="#c8a96e"/></svg>
@@ -1009,7 +1009,7 @@
 
             <!-- Name -->
             <div class="form-group">
-              <label class="form-label" for="f_name">ชื่อ-นามสกุล <span class="req" aria-label="จำเป็น">*</span></label>
+              <label class="form-label" for="f_name">ชื่อ-นามสกุล <span class="req">*</span></label>
               <input
                 class="form-input"
                 type="text"
@@ -1030,7 +1030,7 @@
 
             <!-- Phone -->
             <div class="form-group">
-              <label class="form-label" for="f_phone">เบอร์โทรศัพท์ <span class="req" aria-label="จำเป็น">*</span></label>
+              <label class="form-label" for="f_phone">เบอร์โทรศัพท์ <span class="req">*</span></label>
               <input
                 class="form-input"
                 type="text"
@@ -1052,7 +1052,7 @@
 
             <!-- Service -->
             <div class="form-group">
-              <label class="form-label" for="f_service">บริการที่ต้องการ <span class="req" aria-label="จำเป็น">*</span></label>
+              <label class="form-label" for="f_service">บริการที่ต้องการ <span class="req">*</span></label>
               <select
                 class="form-select"
                 id="f_service"
@@ -1077,7 +1077,7 @@
 
             <!-- Preferred Date -->
             <div class="form-group">
-              <label class="form-label" for="f_date">วันที่ต้องการ <span class="req" aria-label="จำเป็น">*</span></label>
+              <label class="form-label" for="f_date">วันที่ต้องการ <span class="req">*</span></label>
               <input
                 class="form-input"
                 type="date"
@@ -1095,7 +1095,7 @@
 
             <!-- Preferred Time -->
             <div class="form-group">
-              <label class="form-label" for="f_time">เวลาที่ต้องการ <span class="req" aria-label="จำเป็น">*</span></label>
+              <label class="form-label" for="f_time">เวลาที่ต้องการ <span class="req">*</span></label>
               <select
                 class="form-select"
                 id="f_time"
@@ -1147,7 +1147,7 @@
                   aria-required="true"
                 >
                 <label class="checkbox-label" for="f_consent">
-                  ข้าพเจ้ายินยอมให้ ณิชา เวลเนส สปา เก็บรวบรวมและใช้ข้อมูลส่วนบุคคลของข้าพเจ้าตามนโยบายความเป็นส่วนตัวข้างต้น เพื่อวัตถุประสงค์ในการติดต่อยืนยันการจองเท่านั้น <span class="req" aria-label="จำเป็น">*</span>
+                  ข้าพเจ้ายินยอมให้ ณิชา เวลเนส สปา เก็บรวบรวมและใช้ข้อมูลส่วนบุคคลของข้าพเจ้าตามนโยบายความเป็นส่วนตัวข้างต้น เพื่อวัตถุประสงค์ในการติดต่อยืนยันการจองเท่านั้น <span class="req">*</span>
                 </label>
               </div>
               <span class="form-error" id="err_consent" role="alert" aria-live="polite" style="margin-top:0.25rem;">
@@ -1267,7 +1267,7 @@
   <footer>
     <div class="container">
       <div class="footer-logo">ณิชา เวลเนส สปา</div>
-      <p style="color:rgba(255,255,255,0.55);font-size:0.82rem;">บริการสปาและนวดเพื่อสุขภาพ · กรุงเทพมหานคร</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.82rem;">บริการสปาและนวดเพื่อสุขภาพ · กรุงเทพมหานคร</p>
       <div class="footer-demo">
         ⚠️ นี่คือ <strong>เว็บตัวอย่าง (Demo Site)</strong> — ร้าน "ณิชา เวลเนส สปา" เป็นร้านสมมติที่ไม่มีอยู่จริง
         สร้างขึ้นเพื่อแสดงผลงานออกแบบและพัฒนาเว็บเท่านั้น ข้อมูลทั้งหมดบนเว็บนี้เป็นข้อมูลสมมติ
