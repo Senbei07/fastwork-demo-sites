@@ -1,74 +1,56 @@
-# Fastwork Demo Sites — ตัวอย่างเว็บไซต์ Landing Page ภาษาไทย
+# Fastwork Demo Sites: ตัวอย่างเว็บไซต์ Landing Page ภาษาไทย
 
-ชุดเว็บไซต์ Landing Page ภาษาไทยแบบ Responsive ประสิทธิภาพสูง ออกแบบสำหรับธุรกิจขนาดย่อม (SME) ในประเทศไทย เพื่อใช้เป็นผลงานตัวอย่าง (Portfolio Demos) บน Fastwork
+ชุดเว็บ Landing Page ภาษาไทยแบบ Responsive สำหรับธุรกิจขนาดเล็ก ใช้เป็นผลงานตัวอย่างและแม่แบบเริ่มงานให้ลูกค้าบน Fastwork
 
-> **คำชี้แจง / Disclaimer:**
-> - ร้านค้า แบรนด์ สินค้า และข้อมูลการติดต่อทั้งหมดในโปรเจกต์นี้เป็น**ข้อมูลสมมติ** สร้างขึ้นเพื่อแสดงผลงานเท่านั้น ไม่ใช่ร้านค้าจริง
-> - งานภาพประกอบและไอคอนทั้งหมดเป็น **Original SVG และ Pure CSS** ที่วาดขึ้นเองทั้งหมด ไม่มีการดาวน์โหลดรูปภาพ ไม่ใช้ฟอนต์ภายนอก และไม่มีการพึ่งพา CDN ใดๆ (No external fonts, No external CDNs)
-> 
-> *English: All businesses and products are entirely fictional demo sites. All artworks and illustrations are original hand-crafted SVG and CSS without external fonts or CDNs.*
+> **คำชี้แจง / Disclaimer:** ร้านค้า แบรนด์ สินค้า และข้อมูลติดต่อทั้งหมดเป็น**ข้อมูลสมมติ** สร้างขึ้นเพื่อแสดงผลงานเท่านั้น
+> ภาพถ่ายทั้งหมดเป็นภาพจริงจาก Pexels (Pexels License) โฮสต์เองในโฟลเดอร์ของแต่ละเว็บ ดูรายละเอียดใน `CREDITS.md` ของแต่ละเว็บ
+>
+> *English: All businesses and products are fictional demo sites. All photos are real Pexels photos, self-hosted and credited per site.*
 
----
+## เว็บตัวอย่าง
 
-## รายการเว็บตัวอย่าง (Demo Sites & Live URLs)
+| เว็บ | โฟลเดอร์ | Live URL | ฟอนต์ (หัวข้อ + เนื้อหา) | รายละเอียด |
+| :--- | :--- | :--- | :--- | :--- |
+| **บ้านกาแฟริมคลอง** | `cafe/` | https://demo-cafe-dt1.pages.dev | Taviraj + Sarabun | เมนู เวลาทำการ (แสดงสถานะวันนี้) แผนที่แบบกดก่อนโหลด แถบติดต่อด่วนบนมือถือ |
+| **ณิชา เวลเนส** | `spa/` | https://demo-spa-6vb.pages.dev | Pridi + IBM Plex Sans Thai | บริการและราคา ฟอร์มจองคิวส่งเข้า Supabase `bookings` (honeypot + PDPA) |
+| **ลูน่า เฮิร์บ เซรั่มใบบัวบก** | `product/` | https://demo-product.pages.dev | Anuphan + Noto Sans Thai | เซลเพจสินค้าเดี่ยว FAQ สั่งซื้อผ่าน LINE Meta/TikTok Pixel แบบ comment ไว้ |
 
-| เว็บไซต์ตัวอย่าง (Demo) | โฟลเดอร์ | Live URL | รายละเอียดโดยย่อ |
-| :--- | :--- | :--- | :--- |
-| **บ้านกาแฟริมคลอง** (Cafe) | `cafe/` | [https://demo-cafe-dt1.pages.dev](https://demo-cafe-dt1.pages.dev) | ร้านกาแฟบรรยากาศอบอุ่น เมนูเครื่องดื่ม-เบเกอรี่ ตารางเวลาเปิด-ปิด แผนที่ Google Maps แบบ Click-to-load และแถบติดต่อด่วนบนมือถือ (โทร / LINE) |
-| **ณิชา เวลเนส สปา** (Spa & Clinic) | `spa/` | [https://demo-spa-6vb.pages.dev](https://demo-spa-6vb.pages.dev) | คลินิก/สปาเพื่อสุขภาพ รายการบริการ รีวิวลูกค้า แบบฟอร์มจองคิวออนไลน์เชื่อมต่อ Supabase REST API พร้อม Honeypot ป้องกันสแปม และช่องกดยินยอม PDPA |
-| **เซรั่มใบบัวบก ลูน่า เฮิร์บ** (Single Product) | `product/` | [https://demo-product.pages.dev](https://demo-product.pages.dev) | หน้าเซลเพจสินค้าเดี่ยว โปรโมชัน สรรพคุณ วิธีใช้ คำถามที่พบบ่อย (FAQ Accordion) ปุ่มสั่งซื้อผ่าน LINE และโค้ด Meta / TikTok Pixel แบบ Commented-out พร้อมใช้งาน |
-
----
-
-## โครงสร้างโฟลเดอร์ (Folder Layout)
+## โครงสร้างโฟลเดอร์
 
 ```text
-~/demo-sites/
-├── .gitignore             # Git ignore configuration
-├── README.md              # รายละเอียดโปรเจกต์ (Thai + English)
-├── cafe/
-│   ├── _headers           # Security & caching headers สำหรับ Cloudflare Pages
-│   └── index.html         # Landing page ร้านกาแฟ (HTML + Inline CSS/SVG/JS)
-├── spa/
-│   ├── _headers           # Security & caching headers สำหรับ Cloudflare Pages
-│   ├── booking.js         # Logic จัดการฟอร์มจองคิวและส่งข้อมูลไปยัง Supabase
-│   └── index.html         # Landing page สปาและคลินิกเพื่อสุขภาพ
-└── product/
-    ├── _headers           # Security & caching headers สำหรับ Cloudflare Pages
-    └── index.html         # Landing page เซลเพจสินค้าเดี่ยวพร้อม Pixel placeholders
+├── AGENTS.md          # กฎโปรเจกต์ (ป้าย Demo, ภาพจริง, ตัวอักษรไทย, Lighthouse 90+)
+├── TEMPLATE.md        # เช็กลิสต์ใช้แม่แบบกับลูกค้าจริง
+├── .agents/skills/    # สกิล impeccable + frontend-design สำหรับงานออกแบบ
+├── cafe/  spa/  product/
+│   ├── index.html     # หน้าเดียว CSS inline
+│   ├── fonts/         # woff2 subset (ไทย + ละติน) โฮสต์เอง
+│   ├── img/           # ภาพ WebP จาก Pexels
+│   ├── CREDITS.md     # ที่มาภาพ ช่างภาพ สัญญาอนุญาต
+│   ├── PRODUCT.md, DESIGN.md   # บรีฟและระบบดีไซน์
+│   ├── _headers       # cache และ security headers (Cloudflare Pages)
+│   └── robots.txt
+└── spa/booking.js, spa/booking.test.js   # ตรรกะฟอร์มจอง และการทดสอบ
 ```
 
----
+## คุณสมบัติทางเทคนิค
+- Static HTML ล้วน ไม่มี build step ไม่มี CDN ภายนอก ฟอนต์โฮสต์เอง `font-display: swap`
+- ภาพ WebP มี `width`/`height` ครบ `loading="lazy"` ยกเว้นภาพ hero ที่ใช้ `fetchpriority="high"`
+- ผ่านการวัด Lighthouse มือถือ (เครื่องจำลองในเครื่อง): Performance 97–100, Accessibility 100, Best Practices 100, SEO 100
+- เข้าถึงได้ง่าย: skip link, `:focus-visible`, landmark ครบ, alt ภาษาไทย
 
-## คุณสมบัติทางเทคนิค (Technical Specifications)
-
-- **Pure Static Web:** ไม่มี Build step ไม่ใช้เฟรมเวิร์ก ทำงานได้ทันทีบน Web Server ทุกรูปแบบ
-- **Zero External Dependencies:** ไม่โหลดฟอนต์ภายนอกหรือไลบรารีจาก CDN โหลดหน้าเว็บได้รวดเร็วทันใจ (Target PageSpeed 90+)
-- **System Font Stack:** ใช้ชุดฟอนต์ระบบภาษาไทย `"Noto Sans Thai", "Sukhumvit Set", "Thonburi", "Leelawadee UI", system-ui, sans-serif`
-- **SEO & Social Share Ready:** รองรับ `lang="th"`, `viewport`, `title`, `meta description`, Open Graph (`og:title`, `og:description`, `og:type`, `og:locale th_TH`), `theme-color` และ Favicon แบบ Inline SVG
-- **Security Headers:** มีไฟล์ `_headers` กำหนดค่า `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `X-Frame-Options: DENY`, และ `Permissions-Policy`
-
----
-
-## การนำขึ้นระบบ (Deployment to Cloudflare Pages)
-
-สามารถ Deploy แต่ละเว็บไซต์ขึ้น Cloudflare Pages ด้วยคำสั่ง:
-
+## ทดสอบและวัดผล
 ```bash
-npx wrangler pages deploy <folder> --project-name <name>
+node --test spa/booking.test.js                                   # ตรรกะฟอร์มจอง
+.agents/skills/impeccable/scripts/impeccable detect --json cafe/index.html
+python3 -m http.server 8791 --bind 127.0.0.1                      # แล้วรัน Lighthouse ที่ http://127.0.0.1:8791/<site>/
 ```
 
-### คำสั่งสำหรับแต่ละโปรเจกต์:
+## Deploy (Cloudflare Pages)
+```bash
+npx wrangler pages deploy cafe    --project-name demo-cafe
+npx wrangler pages deploy spa     --project-name demo-spa
+npx wrangler pages deploy product --project-name demo-product
+```
 
-1. **Cafe:**
-   ```bash
-   npx wrangler pages deploy cafe --project-name demo-cafe
-   ```
-2. **Spa:**
-   ```bash
-   npx wrangler pages deploy spa --project-name demo-spa
-   ```
-3. **Product:**
-   ```bash
-   npx wrangler pages deploy product --project-name demo-product
-   ```
+## ใช้เป็นแม่แบบกับลูกค้าจริง
+ดู [`TEMPLATE.md`](TEMPLATE.md) สำหรับรายการที่ต้องเปลี่ยน การตั้งค่า Supabase (RLS แบบ INSERT เท่านั้น) และเช็กลิสต์ก่อนส่งมอบ

@@ -2,3 +2,4 @@ node_modules/
 .wrangler/
 *.log
 .agy-task*.md
+.vendor-tmp/
