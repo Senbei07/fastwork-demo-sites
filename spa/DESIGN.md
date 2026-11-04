@@ -1,54 +1,19 @@
-# Design System — ณิชา เวลเนส (Nicha Wellness)
+# Design System — ณิชา เวลเนส
 
 <!-- impeccable:design-schema 1 -->
 
-## Design Intent & Point of View
+## Direction
 
-An earthen, quiet sanctuary aesthetic that rejects the saturated "sage green + fake gold foil + cream card grid" cliché. Built on rich terracotta clay, crisp unbleached linen white, and deep charcoal stone ink, conveying deep relaxation, unhurried craft, and authentic Thai botanical therapies.
+Persuade mode: a calm day-spa page built around choosing a treatment and sending a booking request. A shallow photo and concise introduction lead directly to a treatment list with duration, price and an individual booking action; the form follows immediately. The page avoids testimonial proof, numbered pillars and sales copy about credentials.
 
-## Palette
+## Visual language
 
-- `--bg`: `#ffffff` (Crisp pure ground)
-- `--bg-subtle`: `#f8f6f4` (Subtle stone wash for grouped zones)
-- `--bg-card`: `#ffffff` (Pure crisp sheet surface)
-- `--text`: `#18181b` (Deep charcoal stone ink, 16.5:1 contrast on white)
-- `--text-muted`: `#44403c` (Warm slate gray, 9.8:1 contrast on white)
-- `--text-subtle`: `#57534e` (Stone neutral for micro-details, 6.8:1 contrast on white)
-- `--primary`: `#9c4320` (Warm terracotta clay, 5.6:1 contrast on white, WCAG AA compliant)
-- `--primary-dark`: `#7e3416` (Deep terracotta for active states / focus)
-- `--primary-light`: `#f7ece7` (Soft clay blush tint)
-- `--earth`: `#5c4735` (Warm teak / herbal earth, 8.2:1 contrast on white)
-- `--border`: `#e7e2dc` (Soft sand hairline boundary)
-- `--border-subtle`: `#f0ebe5` (Light partition)
-- `--success`: `#1e5631` (Forest leaf green, 7.5:1 contrast on white)
-- `--error`: `#b91c1c` (Clear scarlet, 5.7:1 contrast on white)
+- Ink `#202d39`, deep blue `#26384a`, pale blue-grey `#e5edf0`, and near-white `#fbfcfb` form a cool, quiet palette distinct from the other sites.
+- Self-hosted IBM Plex Sans Thai regular and semibold provide loopless headings and readable body text. Text is at least 16px, body line-height is 1.7, and headings use 1.35. Thai text is never tracked or transformed.
+- Wide photographic bands and a flat, ruled service list replace split heroes and raised cards. Booking fields are grouped by their task on a pale surface; the footer is light.
+- The demo banner and navigation share a sticky wrapper. Each treatment button names its service for assistive technology and moves focus to the selected service in the form.
+- Form borders, focus rings, reduced-motion behavior, local fonts, and a lazy supporting photo are part of the design.
 
-## Typography
+## Booking details
 
-- **Headings & Display**: `Pridi` (OFL Thai serif / loopless-hybrid with editorial dignity, self-hosted woff2)
-  - Display / Hero Title: 2.65rem, line-height 1.34
-  - Heading 2: 2.15rem – 2.25rem, line-height 1.38
-  - Heading 3: 1.25rem – 1.45rem, line-height 1.4
-- **Body & UI**: `IBM Plex Sans Thai` (OFL humanist sans, clean, readable, self-hosted woff2)
-  - Body: 1.0625rem (17px), line-height 1.7
-  - Small / Footnotes: 0.88rem – 0.95rem, line-height 1.6
-- **Thai Typography Rules**:
-  - `letter-spacing: normal;` (never track out Thai text)
-  - `text-transform: none;` (never uppercase Thai text)
-  - Adequate line-height on headings (1.34+) so tone marks (`ไม้เอก`, `ไม้โท`, `การันต์`) are never clipped.
-  - Optimal mobile line length (35–45 characters per line).
-
-## Space & Layout
-
-- Fluid rhythm based on 8px baseline: 8px, 16px, 24px, 32px, 48px, 64px, 96px.
-- Container: max-width 1120px with generous lateral padding (1.5rem mobile, 2.5rem desktop).
-- Asymmetric editorial balance: Hero pairs a calming atmosphere photo with refined typography.
-- Price List: Editorial ledger layout rather than a grid of 6 identical boxed tiles with icons.
-- Booking Form: Clean, focused, high-contrast, trustworthy form layout with clear visual hierarchy, accessible touch targets (min 48px), and immediate inline feedback.
-
-## Craft & Interaction Details
-
-- Subtle single-pixel dividers using natural stone tones.
-- No glowing halos, no gratuitous drop-shadows, no pseudo-element side color bars.
-- Clear, purposeful focus rings (`outline: 2px solid var(--primary); outline-offset: 3px`).
-- Real Unsplash and Pexels photography capturing authentic spa elements (herbal compress, skilled hands, warm treatment suite, aromatic botanicals).
+Dates and 30-minute start slots use Bangkok time. The page shows only slots that fit the selected duration within weekday or weekend hours; a selected slot is a request, not a confirmed vacancy. Public holidays require confirmation. Phone numbers are normalized before submission, and the existing Supabase booking payload, consent and honeypot remain in place.
