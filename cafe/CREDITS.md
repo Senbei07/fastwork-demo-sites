@@ -6,8 +6,6 @@
 |---|---|---|---|
 | `hero-riverside.webp`<br>`hero-riverside-sm.webp` | [https://www.pexels.com/photo/35228364/](https://www.pexels.com/photo/35228364/) | **Maxine Xin** | Pexels License |
 | `coffee-craft.webp` | [https://www.pexels.com/photo/person-performing-coffee-art-302899/](https://www.pexels.com/photo/person-performing-coffee-art-302899/) | **Chevanon Photography** | Pexels License |
-| `bakery-fresh.webp` | [https://www.pexels.com/photo/two-croissants-and-cup-of-coffee-on-wooden-table-7426479/](https://www.pexels.com/photo/two-croissants-and-cup-of-coffee-on-wooden-table-7426479/) | **Alesia Talkachova** | Pexels License |
-| `canal-terrace.webp` | [https://www.pexels.com/photo/charming-riverside-outdoor-cafe-dining-setup-28936623/](https://www.pexels.com/photo/charming-riverside-outdoor-cafe-dining-setup-28936623/) | **Furkan Özavcı** | Pexels License |
 
 ---
 

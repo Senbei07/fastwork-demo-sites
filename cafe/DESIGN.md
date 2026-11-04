@@ -15,7 +15,7 @@ Persuade mode: a neighbourhood cafe page organised around choosing a drink and p
 
 ## Typography
 
-Sarabun, self-hosted in regular and semibold weights, serves both the loopless Thai headings and readable body. Headings use a 1.35 line-height; substantive copy is at least 16px with 1.7 line-height. Thai text has no letter-spacing or text-transform. Menu prices and hours use tabular numerals.
+Taviraj Bold (serif Thai) is used for headings and Sarabun regular/semibold for readable body text, all self-hosted WOFF2. Headings use a 1.35 line-height; substantive copy is at least 16px with 1.7 line-height. Thai text has no letter-spacing or text-transform. Menu prices and hours use tabular numerals.
 
 ## Layout and behaviour
 

@@ -1,3 +1,5 @@
+// CUSTOMIZE: replace SUPABASE_URL and SUPABASE_KEY with the client's own project.
+// Use a publishable (anon) key only, and enable RLS on `bookings` with an INSERT-only policy.
 var SUPABASE_URL = 'https://eksfjnngemgwryswgmad.supabase.co/rest/v1/bookings';
 var SUPABASE_KEY = 'sb_publishable_YmjHhRgrXuPpyfiCh4YAsA__-Vq35VI';
 
